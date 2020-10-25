@@ -4,5 +4,5 @@ Con este programa podrás ingresar información sobre tu negocio, obtener inform
 
 
 
-![alt text](https://github.com/MateoG404/Muu-Seguro/blob/main/images/logos/logoMuuTexto.png)
+![alt text](https://github.com/MateoG404/Muu-Seguro/blob/main/images/logos/logoMuuNegro.png)
 
