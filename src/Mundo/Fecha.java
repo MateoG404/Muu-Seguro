@@ -3,7 +3,7 @@ package Mundo;
 
 /**
  *
- * @author John Silva
+ * @author John Silva , MateoG404 and Laura Ardila
  */
 public class Fecha {
     //Parametros
