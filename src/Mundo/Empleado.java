@@ -3,7 +3,7 @@ package Mundo;
 
 /**
  *
- * @author John Silva
+ * @author John Silva and MateoG404
  */
 public class Empleado {
     //PARAMETROS
