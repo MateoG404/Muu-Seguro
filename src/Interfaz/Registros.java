@@ -10,7 +10,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 /**
  *
- * @author John Silva
+ * @author John Silva and Laura Ardila
  */
 public class Registros extends javax.swing.JFrame {
 
