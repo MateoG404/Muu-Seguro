@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 import javax.swing.JOptionPane;
 /**
  *
- * @author John Silva
+ * @author John Silva and MateoG404
  */
 public class Empresa {
     //CONSTANTES
