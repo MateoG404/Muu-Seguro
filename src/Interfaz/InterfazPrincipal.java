@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
  *
- * @author John Silva
+ * @author John Silva, MateoG404 and Laura Ardila
  */
 public class InterfazPrincipal extends javax.swing.JFrame {
 
