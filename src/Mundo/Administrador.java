@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author John Silva
+ * @author John Silva and MateoG404
  */
 public class Administrador {
     //PARAMETROS
