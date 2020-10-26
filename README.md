@@ -1,5 +1,7 @@
 # Muu Seguro :cow:
-![alt text](https://github.com/MateoG404/Muu-Seguro/blob/main/images/logos/logoMuuNegro.png)
+<p align ="center"> 
+<img width="350" height="350" src="https://github.com/MateoG404/Muu-Seguro/blob/main/images/logos/logoMuuNegro.png">
+</p>
 
 **Muu Seguro tiene como proposito general facilitar las actividades administrativas de los ganaderos en busca de obtener mayores ganancias**
 
