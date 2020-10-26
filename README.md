@@ -7,6 +7,8 @@ Con este programa podrás ingresar información sobre tu negocio, obtener inform
 
 ![alt text](https://github.com/MateoG404/Muu-Seguro/blob/main/images/logos/logoMuuNegro.png)
 
-*
-Se requieren equipos computadores con mínimos requerimientos operativos, sistema de 32bits Windows 7 en adelante. 
-Requiere de plugins o librerías como Jcalendar y PlaceHolder para el correcto funcionamiento
+Nota:
+Si deseas ejecutar el programa debes contar con los siguientes requerimientos:
+
+*Sistema de 32bits Windows 7 en adelante. 
+*Plugins y librerías como Jcalendar y PlaceHolder.
