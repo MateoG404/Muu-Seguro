@@ -1,2 +1,2 @@
 #hello
-git rm -r Interfaz
+git rm -r DataImage
