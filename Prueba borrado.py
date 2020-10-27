@@ -1,2 +1,2 @@
 #hello
-git rm -r classes
+git rm -r Interfaz
