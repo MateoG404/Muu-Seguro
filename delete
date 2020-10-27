@@ -1,1 +1,1 @@
-git rm -r --src
+git rm -r --cached src
