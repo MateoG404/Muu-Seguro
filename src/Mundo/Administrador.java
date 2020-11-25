@@ -94,6 +94,7 @@ public class Administrador {
         arregloLotes();
     }
     //METODOS
+
     /*
     *Crear .csv para empleado y veterinarios
     */
@@ -101,7 +102,7 @@ public class Administrador {
         try{
             FileWriter empresas=new FileWriter(pathUsers, true);
         }catch(Exception ex){
-            JOptionPane.showMessageDialog(null, "Ups! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ups102Admi! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
     /*
@@ -111,7 +112,7 @@ public class Administrador {
         try{
             FileWriter empresas=new FileWriter(pathAnimals, true);
         }catch(Exception ex){
-            JOptionPane.showMessageDialog(null, "Ups! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ups114Admin! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
     /*
@@ -134,7 +135,7 @@ public class Administrador {
             registrar.println(tipo+","+salario+","+nombreU+","+contraseña+","+fecha);
             registrar.close();
         }catch(Exception ex){
-            JOptionPane.showMessageDialog(null, "Ups! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ups137Admin! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
         }
         arregloEmpleados();
         arregloVeterinarios();
@@ -150,18 +151,18 @@ public class Administrador {
             try{
                 FileWriter animales= new FileWriter(pathAnimals, true);
                 PrintWriter registrar=new PrintWriter(animales);
-                registrar.println(sexo+","+numSerie+","+nombre+","+raza+","+edad+","+peso+","+numCrias+","+ cantidadCarne+","+cantidadLeche);
+                registrar.println(sexo+","+numSerie+","+nombre+","+raza+","+edad+","+peso+","+numCrias+","+ cantidadCarne+","+cantidadLeche+","+"{}");
                 registrar.close();
-            }catch(Exception ex){
+            }catch(IOException ex){
                 JOptionPane.showMessageDialog(null, "Ups! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }else{
             try{
                 FileWriter animales= new FileWriter(pathAnimals, true);
                 PrintWriter registrar=new PrintWriter(animales);
-                registrar.println(sexo+","+numSerie+","+nombre+","+raza+","+edad+","+peso+","+numCrias+","+ cantidadCarne+","+cantidadLeche);
+                registrar.println(sexo+","+numSerie+","+nombre+","+raza+","+edad+","+peso+","+numCrias+","+ cantidadCarne+","+cantidadLeche+","+";");
                 registrar.close();
-            }catch(Exception ex){
+            }catch(IOException ex){
                 JOptionPane.showMessageDialog(null, "Ups! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
             }
         } 
@@ -200,7 +201,7 @@ public class Administrador {
                 }
             }
             Files.write(path, contenidoArchivo);
-            }catch(Exception ex){
+            }catch(IOException ex){
                 JOptionPane.showMessageDialog(null, "Ups! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
         }
         arregloEmpleados();
@@ -222,7 +223,7 @@ public class Administrador {
             for(int i=0; i<contenidoArchivo.size();i++){
                 String[] valores = contenidoArchivo.get(i).split(",");
                 if(valores[0].equals(sexo) && valores[1].equals(numSerie)){
-                    contenidoArchivo.set(i, sexo+","+numSerie+","+nombre+","+raza+","+edad+","+peso+","+numCrias+","+cantidadCarne+","+cantidadLeche);
+                    contenidoArchivo.set(i, sexo+","+numSerie+","+nombre+","+raza+","+edad+","+peso+","+numCrias+","+cantidadCarne+","+cantidadLeche+","+";");
                     break;
                 }
             }
@@ -344,7 +345,7 @@ public class Administrador {
                     }
                 }
             }catch(Exception ex){
-                JOptionPane.showMessageDialog(null, "Ups! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Ups345Admin! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
         }
         ///PRUEBA OBJETOS
         for(int i=0; i<empleados.size();i++){
@@ -371,11 +372,7 @@ public class Administrador {
                     }
                 }
             }catch(Exception ex){
-                JOptionPane.showMessageDialog(null, "Ups! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        //PRUEBA OBJETOS
-        for(int i=0; i<veterinarios.size();i++){
-            System.out.println(veterinarios.get(i).darNombre());
+                JOptionPane.showMessageDialog(null, "Ups372Admin! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
     /*
@@ -393,12 +390,13 @@ public class Administrador {
                 if (valores[0].equals("Vaca")){//si el sexo es vaca
                     Vaca muu=new Vaca(valores[1], valores[2],valores[3],Integer.parseInt(valores[4]),
                     Float.parseFloat(valores[5]), Integer.parseInt(valores[6]), Float.parseFloat(valores[7]),
-                    Float.parseFloat(valores[8]));
+                    Float.parseFloat(valores[8]), valores[9]);
                     vacas.add(muu);
                     }
                 }
             }catch(Exception ex){
                 JOptionPane.showMessageDialog(null, "UpsarregloVacas! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                System.err.println(ex.toString());
         }
         //PRUEBA OBJETOS
         for(int i=0; i<vacas.size();i++){
@@ -420,7 +418,7 @@ public class Administrador {
                 String[] valores = linea.split(",");//arreglo de las columnas de cada linea
                 if (valores[0].equals("Toro")){//si el sexo es toro
                     Toro muu=new Toro(valores[1], valores[2],valores[3],Integer.parseInt(valores[4]),
-                    Float.parseFloat(valores[5]), Integer.parseInt(valores[6]), Float.parseFloat(valores[7]));
+                    Float.parseFloat(valores[5]), Integer.parseInt(valores[6]), Float.parseFloat(valores[7]), valores[9]);
                     toros.add(muu);
                     }
                 }
@@ -450,7 +448,7 @@ public class Administrador {
 
                 }
             }catch(Exception ex){
-                JOptionPane.showMessageDialog(null, "Ups! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "UpsArregloLotes! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
         }
         ///PRUEBA OBJETOS
         for(int i=0; i<lotes.size();i++){

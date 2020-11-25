@@ -13,7 +13,12 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.Random;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 /**
  *
@@ -63,6 +68,7 @@ public class Empresa {
             BufferedReader br =new BufferedReader(new FileReader(PATH));
             while((linea=br.readLine())!= null){//cada linea del archivo csv
                 String[] valores = linea.split(",");//arreglo de las columnas de cada linea
+                System.out.print(valores.length+"LEN");
                 if (valores[0].equals(codigo)){
                     codigoEmp=valores[0].toCharArray();
                     tipoEmp=valores[1];
@@ -71,7 +77,8 @@ public class Empresa {
                     }
                 }
             }catch(Exception ex){
-                JOptionPane.showMessageDialog(null, "Ups! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Ups79! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                System.err.println(ex.toString());
         }
     }
     /*
@@ -106,11 +113,100 @@ public class Empresa {
             PrintWriter registrar=new PrintWriter(empresas);
             registrar.println(codigo+","+tipo+","+correo+","+nombreAdmin+","+contraseña);
             registrar.close();
-        }catch(Exception ex){
+        }catch(IOException ex){
             JOptionPane.showMessageDialog(null, "Ups! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
- 
+    public void modificarEmpresaAdmin(String correoElectronico,String nCodigoEmp, String nTipoEmp,String nNombreAdmin, String nContraseña){
+        try{
+            Path path=FileSystems.getDefault().getPath(PATH);
+            ArrayList<String> contenidoArchivo = new ArrayList<>(Files.readAllLines(path));
+            for(int i=0; i<contenidoArchivo.size();i++){
+                String[] valores = contenidoArchivo.get(i).split(",");
+                if(valores[2].equals(correoElectronico)){
+                    contenidoArchivo.set(i, nCodigoEmp+","+nTipoEmp+","+correoElectronico+","+nNombreAdmin+","+nContraseña);
+                    break;
+                }
+            }
+            Files.write(path, contenidoArchivo);
+        }catch(IOException ex){
+            JOptionPane.showMessageDialog(null, "Ups! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    /*
+    *Retorna el veterinario que ha iniciado sesión
+    */
+    public  Veterinario darVeterinarioActual(String nombreU, String codigoEmp){
+        String correo="";
+        String linea;
+        Veterinario actual = null;
+        try{
+            BufferedReader br =new BufferedReader(new FileReader(PATH));
+            while((linea=br.readLine())!= null){//cada linea del archivo csv
+                String[] valores = linea.split(",");//arreglo de las columnas de cada linea
+                if(valores[0].equals(codigoEmp)){
+                correo=valores[2];
+                break;
+                }   
+            }     
+        }catch(IOException ex){
+            JOptionPane.showMessageDialog(null, "Ups! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        String pathUsers="C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\dataBase\\"+correo+"Usuarios.csv";
+        /*
+        *Buscar el usuario VETERINARIO
+        */
+        try{
+            BufferedReader br =new BufferedReader(new FileReader(pathUsers));
+            while((linea=br.readLine())!= null){//cada linea del archivo csv
+                String[] valores = linea.split(",");//arreglo de las columnas de cada linea
+                if(valores[2].equals(nombreU) && valores[0].equals("Veterinario")){
+                   actual=new Veterinario(Integer.parseInt(valores[1]),valores[2],valores[3],valores[4]);
+                   break;
+                }   
+            }
+        }catch(IOException ex){
+            JOptionPane.showMessageDialog(null, "Ups! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        return actual;   
+    }
+    /*
+    *Retorna el empleado que ha iniciado sesión
+    */
+    public Empleado darEmpleadoActual(String nombreU, String codigoEmp){
+        String correo="";
+        String linea;
+        Empleado actual = null;
+        try{
+            BufferedReader br =new BufferedReader(new FileReader(PATH));
+            while((linea=br.readLine())!= null){//cada linea del archivo csv
+                String[] valores = linea.split(",");//arreglo de las columnas de cada linea
+                if(valores[0].equals(codigoEmp)){
+                correo=valores[2];
+                break;
+                }   
+            }     
+        }catch(IOException ex){
+            JOptionPane.showMessageDialog(null, "Ups! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        String pathUsers="C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\dataBase\\"+correo+"Usuarios.csv";
+        /*
+        *Buscar el usuario VETERINARIO
+        */
+        try{
+            BufferedReader br =new BufferedReader(new FileReader(pathUsers));
+            while((linea=br.readLine())!= null){//cada linea del archivo csv
+                String[] valores = linea.split(",");//arreglo de las columnas de cada linea
+                if(valores[2].equals(nombreU) && valores[0].equals("Empleado")){
+                   actual=new Empleado(Integer.parseInt(valores[1]),valores[2],valores[3],valores[4]);
+                   break;
+                }   
+            }
+        }catch(IOException ex){
+            JOptionPane.showMessageDialog(null, "Ups! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        return actual;
+    }
     /*
     *Dar codigo de la empresa
     */

@@ -9,7 +9,9 @@ package Interfaz;
  *
  * @author John Silva
  */
+import Mundo.Empleado;
 import Mundo.Empresa;
+import Mundo.Veterinario;
 import com.placeholder.PlaceHolder;
 import java.awt.*;
 import javax.swing.*;
@@ -17,9 +19,6 @@ import java.io.FileWriter;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
 /**
@@ -399,9 +398,19 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 Ventana ventanaPrincipalAdmin=new Ventana(emp);
                 this.setVisible(false);
                 ventanaPrincipalAdmin.setVisible(true);
+            }else if(rol.equals("Veterinario")){               
+                //Veterinario---->Ventana principal veterinario
+                siguienteVentana();
+                VeterinarioInterfaz ven= new VeterinarioInterfaz(emp, nombreUsuario);
+                this.setVisible(false);
+                ven.setVisible(true);
+                
             }else{
                 //Empleado---->Ventana principal empleado
-                //Veterinario---->Ventana principal veterinario
+                siguienteVentana();
+                WorkerWindow ven= new WorkerWindow(emp, nombreUsuario);
+                this.setVisible(false);
+                ven.setVisible(true);
             }
         }else{//errores contraseñas,codigoEmp o usuarios incorrectos
              JOptionPane.showMessageDialog(null, "El usuario no ha sido encontrado, revise las credenciales", "Atención", JOptionPane.INFORMATION_MESSAGE);
@@ -649,7 +658,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                         }   
                     }
                 }catch(Exception ex){
-                    JOptionPane.showMessageDialog(null, "Ups! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Ups662! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
                     return false;
                 }
             }else{
@@ -668,7 +677,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                         }   
                     }     
                 }catch(Exception ex){
-                    JOptionPane.showMessageDialog(null, "Ups! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Ups681! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
                     return false;
                 }
                 /*
@@ -687,7 +696,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                         }   
                     }
                 }catch(Exception ex){
-                    JOptionPane.showMessageDialog(null, "Ups! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Ups700! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
                     return false;
                 }
             }

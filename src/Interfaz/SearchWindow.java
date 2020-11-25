@@ -54,7 +54,7 @@ public class SearchWindow extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         texto = new javax.swing.JTextArea();
         fondo = new javax.swing.JLabel();
-
+        
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Busqueda");
         setBackground(new java.awt.Color(172, 225, 141));
@@ -82,20 +82,32 @@ public class SearchWindow extends javax.swing.JFrame {
         jPanel2.add(chkEmpleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, -1, -1));
 
         BusquedaButton.setText("Buscar");
+        BusquedaButton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        BusquedaButton.setForeground(new java.awt.Color(97, 97, 97));
+        BusquedaButton.setBorder(null);
+        BusquedaButton.setBorderPainted(false);
+        BusquedaButton.setFocusPainted(false);
+        BusquedaButton.setMargin(new java.awt.Insets(100, 2, 100, 14));
         BusquedaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BusquedaButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(BusquedaButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 40, 99, -1));
+        jPanel2.add(BusquedaButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 40, 90, 32));
 
         jButton2.setText("Borrar Selección ");
+        jButton2.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(97, 97, 97));
+        jButton2.setBorder(null);
+        jButton2.setBorderPainted(false);
+        jButton2.setFocusPainted(false);
+        jButton2.setMargin(new java.awt.Insets(100, 2, 100, 14));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 150, 32));
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -123,12 +135,18 @@ public class SearchWindow extends javax.swing.JFrame {
 
         RegresarButton.setBackground(new java.awt.Color(255, 255, 255));
         RegresarButton.setText("Regresar");
+        RegresarButton.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        RegresarButton.setForeground(new java.awt.Color(97, 97, 97));
+        RegresarButton.setBorder(null);
+        RegresarButton.setBorderPainted(false);
+        RegresarButton.setFocusPainted(false);
+        RegresarButton.setMargin(new java.awt.Insets(100, 2, 100, 14));
         RegresarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RegresarButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(RegresarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, -1, -1));
+        jPanel1.add(RegresarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, 100, 32));
 
         texto.setColumns(20);
         texto.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N

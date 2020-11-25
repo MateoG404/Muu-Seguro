@@ -13,48 +13,31 @@ package Mundo;
  *
  * @author  MateoG404
  */
-public class Empleado {
+public class Empleado extends Usuario{
     //PARAMETROS
     
     /*
     *Salario empleado
     */
-    private int salario;
+    //private int salario;
     /*
     *Nombre de usuario
     */
-    private String nombreUsuario;
+    //private String nombreUsuario;
     /*
     *contraseña de empleado
     */
-    private String contraseña;
+    //private String contraseña;
     /*
     *Fecha de inicio del trabajador con la empresa
     */
-    private Fecha fechaInicio;
+    //private Fecha fechaInicio;
     //CONSTRUCTOR
     /*
     *Crea un empleado
     */
     public Empleado(int sueldo, String nombreU, String cont, String fecha){
-        salario=sueldo;
-        nombreUsuario=nombreU;
-        contraseña=cont;
-        fechaInicio=new Fecha(fecha);
+        super(sueldo, nombreU,cont,  fecha);
     }
-    public String darNombre(){
-        return nombreUsuario;
-    }
-    
-    public int darSalario(){
-        return salario;
-    }
-    
-    public String darContraseña(){
-        return nombreUsuario;
-    }
-    
-    public String darFechaInicioLaboral(){
-        return fechaInicio.toString();
-    }
+   
 }

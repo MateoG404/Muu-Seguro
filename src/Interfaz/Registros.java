@@ -16,19 +16,20 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
+
 /**
  *
  * @author John Silva and Laura Ardila
  */
 public class Registros extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form Registros
      */
     public Registros(Empresa emp) {
-        initComponents();
-        initOtComponents(emp);
+        initComponents(emp);
     }
 
     /**
@@ -38,10 +39,11 @@ public class Registros extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents(Empresa emp) {
 
         buttonGroupAgua = new javax.swing.ButtonGroup();
         buttonGroupConoceNacimiento = new javax.swing.ButtonGroup();
+        buttonGroupNumeroCrias=new javax.swing.ButtonGroup();
         jPanelRegistroLote = new javax.swing.JPanel();
         jLabelDistancia = new javax.swing.JLabel();
         jLabelNumeroLote = new javax.swing.JLabel();
@@ -78,13 +80,15 @@ public class Registros extends javax.swing.JFrame {
         jTextFieldCantidadLeche = new javax.swing.JTextField();
         jTextFieldCantidadCarne = new javax.swing.JTextField();
         jTextFieldNumeroRegistro = new javax.swing.JTextField();
-        jTextFieldNumCrias = new javax.swing.JTextField();
         jComboBoxTipoRaza = new javax.swing.JComboBox<>();
         jComboBoxTipoSexo = new javax.swing.JComboBox<>();
         jTextFieldPesoAnimal = new javax.swing.JTextField();
         jTextFieldNombreAnimal = new javax.swing.JTextField();
         jRadioButtonNacimientoNO = new javax.swing.JRadioButton();
         jRadioButtonNacimientoSI = new javax.swing.JRadioButton();
+        jRadioButtonCriasNO=new javax.swing.JRadioButton();
+        jRadioButtonCriasSI=new javax.swing.JRadioButton();
+        jTextFieldCrias=new javax.swing.JTextField();
         jButtonRegistrarAnimal = new javax.swing.JButton();
         jSpinnerEdad = new javax.swing.JSpinner();
         jDateChooserFechaNacimiento = new com.toedter.calendar.JDateChooser();
@@ -122,7 +126,38 @@ public class Registros extends javax.swing.JFrame {
         setLocation(new java.awt.Point(150, 50));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
+        
+        empresa=emp;
+        
+        ((javax.swing.JTextField)jDateChooserInicioLaboral.getDateEditor()).setEditable(false);
+        ((javax.swing.JTextField)jDateChooserFechaNacimiento.getDateEditor()).setEditable(false);
+        ((javax.swing.JSpinner.NumberEditor)jSpinnerEdad.getEditor()).getTextField().setEditable(false);
+        ((javax.swing.JSpinner.NumberEditor)jSpinnerDistanciaCasa.getEditor()).getTextField().setEditable(false);
+        ((javax.swing.JSpinner.NumberEditor)jSpinnerHectareas.getEditor()).getTextField().setEditable(false);
+        ((javax.swing.JSpinner.NumberEditor)jSpinnerNumeroLote.getEditor()).getTextField().setEditable(false);
+        
+        jDateChooserInicioLaboral.getJCalendar().setMaxSelectableDate(new Date());
+        jDateChooserFechaNacimiento.getJCalendar().setMaxSelectableDate(new Date());
+        
+        jDateChooserInicioLaboral.setDate(new Date());
+        jDateChooserFechaNacimiento.setDate(new Date());
+        
+        
+        jPanelRegistroUsuario.setVisible(false);
+        jPanelRegistroAnimal.setVisible(false);
+        jPanelRegistroLote.setVisible(false);
+        jSpinnerEdad.setVisible(false);
+        jLabelEdad.setVisible(false);
+        jDateChooserFechaNacimiento.setVisible(false);
+        holder=new PlaceHolder(jTextFieldNombreUsuarioRegistro,"Crear nombre de usuario");
+        holder=new PlaceHolder(jPasswordFieldContraseñaRegistro,"Crear contraseña");
+        holder=new PlaceHolder(jTextFieldNumeroRegistro,"##########");
+        holder=new PlaceHolder(jTextFieldNombreAnimal,"Opcional");
+        holder=new PlaceHolder(jTextFieldPesoAnimal,"Kilogramos");
+        holder=new PlaceHolder(jTextFieldCantidadCarne,"Kilogramos");
+        holder=new PlaceHolder(jTextFieldCantidadLeche,"Litros");
+        holder=new PlaceHolder(jTextFieldCrias,"#registro,#registro,...");
+        
         jPanelRegistroLote.setBackground(new java.awt.Color(104, 191, 52));
         jPanelRegistroLote.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -266,7 +301,7 @@ public class Registros extends javax.swing.JFrame {
 
         jLabelNumCrias.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLabelNumCrias.setForeground(new java.awt.Color(97, 97, 97));
-        jLabelNumCrias.setText("Número de crias");
+        jLabelNumCrias.setText("¿Tiene crías?");
         jPanelRegistroAnimal.add(jLabelNumCrias, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 384, 134, -1));
 
         jLabelNumeroRegistro.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -320,17 +355,7 @@ public class Registros extends javax.swing.JFrame {
         });
         jPanelRegistroAnimal.add(jTextFieldNumeroRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 235, 30));
 
-        jTextFieldNumCrias.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jTextFieldNumCrias.setForeground(new java.awt.Color(97, 97, 97));
-        jTextFieldNumCrias.setAutoscrolls(false);
-        jTextFieldNumCrias.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jTextFieldNumCrias.setPreferredSize(new java.awt.Dimension(60, 20));
-        jTextFieldNumCrias.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextFieldNumCriasKeyPressed(evt);
-            }
-        });
-        jPanelRegistroAnimal.add(jTextFieldNumCrias, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 400, 180, 30));
+       
 
         jComboBoxTipoRaza.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jComboBoxTipoRaza.setForeground(new java.awt.Color(97, 97, 97));
@@ -341,7 +366,17 @@ public class Registros extends javax.swing.JFrame {
 
         jComboBoxTipoSexo.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jComboBoxTipoSexo.setForeground(new java.awt.Color(97, 97, 97));
-        jComboBoxTipoSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vaca", "Toro" }));
+        ArrayList <String>sexos=new ArrayList<>();
+        System.out.print(empresa.mdarTipoEmp());
+        if(empresa.mdarTipoEmp().equals("Leche")){
+            sexos.add("Vaca");
+            sexos.add("Toro");
+        }else{
+            sexos.add("Vaca");
+            sexos.add("Toro");
+        }
+        String [] def=sexos.toArray(new String[sexos.size()]);
+        jComboBoxTipoSexo.setModel(new javax.swing.DefaultComboBoxModel<>(def));
         jComboBoxTipoSexo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jComboBoxTipoSexo.setFocusable(false);
         jComboBoxTipoSexo.addActionListener(new java.awt.event.ActionListener() {
@@ -396,7 +431,38 @@ public class Registros extends javax.swing.JFrame {
             }
         });
         jPanelRegistroAnimal.add(jRadioButtonNacimientoSI, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, -1, -1));
+        
+        buttonGroupNumeroCrias.add(jRadioButtonCriasNO);
+        jRadioButtonCriasNO.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jRadioButtonCriasNO.setText("NO");
+        jRadioButtonCriasNO.setContentAreaFilled(false);
+        jRadioButtonCriasNO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonCriasNOActionPerformed(evt);
+            }
+        });
+        jPanelRegistroAnimal.add(jRadioButtonCriasNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 384, -1, -1));
 
+        buttonGroupNumeroCrias.add(jRadioButtonCriasSI);
+        jRadioButtonCriasSI.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jRadioButtonCriasSI.setText("SI");
+        jRadioButtonCriasSI.setContentAreaFilled(false);
+        jRadioButtonCriasSI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonCriasSIActionPerformed(evt);
+            }
+        });
+        jPanelRegistroAnimal.add(jRadioButtonCriasSI, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 384, -1, -1));
+  
+        //Now1
+        jTextFieldCrias.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jTextFieldCrias.setForeground(new java.awt.Color(97, 97, 97));
+        jTextFieldCrias.setAutoscrolls(false);
+        jTextFieldCrias.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jTextFieldCrias.setEditable(false);
+        jTextFieldCrias.setVisible(false);
+        jPanelRegistroAnimal.add(jTextFieldCrias,new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 400, 180, 30));
+        
         jButtonRegistrarAnimal.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jButtonRegistrarAnimal.setForeground(new java.awt.Color(97, 97, 97));
         jButtonRegistrarAnimal.setText("Continuar");
@@ -556,57 +622,95 @@ public class Registros extends javax.swing.JFrame {
         jLabeQueDeseaReguistrar.setToolTipText("");
         jPanelRegistroBotones.add(jLabeQueDeseaReguistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 370, 60));
 
-        jButtonIrAPanelLote.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jButtonIrAPanelLote.setForeground(new java.awt.Color(97, 97, 97));
-        jButtonIrAPanelLote.setText("Lote");
+        jButtonIrAPanelLote.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        jButtonIrAPanelLote.setText("LOTE");
+        jButtonIrAPanelLote.setForeground(new java.awt.Color(255,255,255));
         jButtonIrAPanelLote.setBorder(null);
         jButtonIrAPanelLote.setBorderPainted(false);
-        jButtonIrAPanelLote.setFocusPainted(false);
-        jButtonIrAPanelLote.setMargin(new java.awt.Insets(100, 2, 100, 14));
+        jButtonIrAPanelLote.setBackground(new java.awt.Color(0, 51, 51));
+        jButtonIrAPanelLote.setContentAreaFilled(false);
+        jButtonIrAPanelLote.setOpaque(true);
         jButtonIrAPanelLote.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonIrAPanelLoteActionPerformed(evt);
             }
         });
+        jButtonIrAPanelLote.addMouseListener(new java.awt.event.MouseAdapter(){
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                buttonMouseEntered(evt,jButtonIrAPanelLote);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt){
+                buttonMouseExited(evt, jButtonIrAPanelLote);
+            }
+        });
         jPanelRegistroBotones.add(jButtonIrAPanelLote, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 344, 200, 32));
 
-        jButtonIrAPanelUsuario.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jButtonIrAPanelUsuario.setForeground(new java.awt.Color(97, 97, 97));
-        jButtonIrAPanelUsuario.setText("Usuario");
+        jButtonIrAPanelUsuario.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        jButtonIrAPanelUsuario.setText("USUARIO");
+        jButtonIrAPanelUsuario.setForeground(new java.awt.Color(255,255,255));
         jButtonIrAPanelUsuario.setBorder(null);
         jButtonIrAPanelUsuario.setBorderPainted(false);
-        jButtonIrAPanelUsuario.setFocusPainted(false);
-        jButtonIrAPanelUsuario.setMargin(new java.awt.Insets(100, 2, 100, 14));
+        jButtonIrAPanelUsuario.setBackground(new java.awt.Color(0, 51, 51));
+        jButtonIrAPanelUsuario.setContentAreaFilled(false);
+        jButtonIrAPanelUsuario.setOpaque(true);
         jButtonIrAPanelUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonIrAPanelUsuarioActionPerformed(evt);
             }
         });
+        
+        jButtonIrAPanelUsuario.addMouseListener(new java.awt.event.MouseAdapter(){
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                buttonMouseEntered(evt,jButtonIrAPanelUsuario);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt){
+                buttonMouseExited(evt, jButtonIrAPanelUsuario);
+            }
+        });
         jPanelRegistroBotones.add(jButtonIrAPanelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 220, 200, 32));
 
-        jButtonIrAPanelAnimal.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jButtonIrAPanelAnimal.setForeground(new java.awt.Color(97, 97, 97));
-        jButtonIrAPanelAnimal.setText("Animal");
-        jButtonIrAPanelAnimal.setToolTipText("");
+        jButtonIrAPanelAnimal.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        jButtonIrAPanelAnimal.setText("ANIMAL");
+        jButtonIrAPanelAnimal.setForeground(new java.awt.Color(255,255,255));
         jButtonIrAPanelAnimal.setBorder(null);
         jButtonIrAPanelAnimal.setBorderPainted(false);
-        jButtonIrAPanelAnimal.setFocusPainted(false);
-        jButtonIrAPanelAnimal.setMargin(new java.awt.Insets(100, 2, 100, 14));
+        jButtonIrAPanelAnimal.setBackground(new java.awt.Color(0, 51, 51));
+        jButtonIrAPanelAnimal.setContentAreaFilled(false);
+        jButtonIrAPanelAnimal.setOpaque(true);
         jButtonIrAPanelAnimal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonIrAPanelAnimalActionPerformed(evt);
             }
         });
+        jButtonIrAPanelAnimal.addMouseListener(new java.awt.event.MouseAdapter(){
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                buttonMouseEntered(evt,jButtonIrAPanelAnimal);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt){
+                buttonMouseExited(evt, jButtonIrAPanelAnimal);
+            }
+        });
         jPanelRegistroBotones.add(jButtonIrAPanelAnimal, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 282, 200, 32));
 
-        jButtonVolverVentanaPrincipal.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jButtonVolverVentanaPrincipal.setForeground(new java.awt.Color(97, 97, 97));
+        jButtonVolverVentanaPrincipal.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jButtonVolverVentanaPrincipal.setText("Volver");
-        jButtonVolverVentanaPrincipal.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButtonVolverVentanaPrincipal.setForeground(new java.awt.Color(255,255,255));
+        jButtonVolverVentanaPrincipal.setBorder(null);
         jButtonVolverVentanaPrincipal.setBorderPainted(false);
+        jButtonVolverVentanaPrincipal.setBackground(new java.awt.Color(0, 51, 51));
+        jButtonVolverVentanaPrincipal.setContentAreaFilled(false);
+        jButtonVolverVentanaPrincipal.setOpaque(true);
         jButtonVolverVentanaPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVolverVentanaPrincipalActionPerformed(evt);
+            }
+        });
+        jButtonVolverVentanaPrincipal.addMouseListener(new java.awt.event.MouseAdapter(){
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                buttonMouseEntered(evt,jButtonVolverVentanaPrincipal);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt){
+                buttonMouseExited(evt, jButtonVolverVentanaPrincipal);
             }
         });
         jPanelRegistroBotones.add(jButtonVolverVentanaPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 430, 190, 32));
@@ -623,6 +727,19 @@ public class Registros extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    /*
+    *Color Botones
+    */
+    private void buttonMouseEntered(java.awt.event.MouseEvent evt, javax.swing.JButton boton) {                                             
+        // TODO add your handling code here:
+        boton.setBackground(new java.awt.Color(119,144,144));
+    }
+    private void buttonMouseExited(java.awt.event.MouseEvent evt, javax.swing.JButton boton) {                                             
+        // TODO add your handling code here:
+        boton.setBackground(new java.awt.Color(0,51,51));
+    }
+    
+    
     /*
     *Ver contraseña registro usuario
     */
@@ -700,8 +817,20 @@ public class Registros extends javax.swing.JFrame {
     private void jRadioButtonNacimientoNOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNacimientoNOActionPerformed
         noConoceEdad();
     }//GEN-LAST:event_jRadioButtonNacimientoNOActionPerformed
-   
-    
+    /*
+    *Seleccion SI tiene crías
+    */
+    private void jRadioButtonCriasSIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNacimientoSIActionPerformed
+        jTextFieldCrias.setEditable(true);
+        jTextFieldCrias.setVisible(true);
+    }
+    /*
+    *Seleccion NO tiene crías
+    */
+    private void jRadioButtonCriasNOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNacimientoSIActionPerformed
+        jTextFieldCrias.setEditable(false);
+        jTextFieldCrias.setVisible(false);
+    }
     /*
     *Boton continuar registro usuarios
     */
@@ -756,14 +885,6 @@ public class Registros extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextFieldPesoAnimalKeyPressed
 
-    private void jTextFieldNumCriasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumCriasKeyPressed
-        if(ingresoLetrasEnteros(evt.getKeyCode())){
-           JOptionPane.showMessageDialog(null, "Solo valores númericos", "Advertencia", JOptionPane.WARNING_MESSAGE);
-           evt.consume();
-          jTextFieldNumCrias.setText("");
-           holder=new PlaceHolder(jTextFieldNumCrias,"Número de crias");
-        }
-    }//GEN-LAST:event_jTextFieldNumCriasKeyPressed
 
     private void jTextFieldCantidadCarneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCantidadCarneKeyPressed
         if(ingresoLetrasDecimales(evt.getKeyCode())){
@@ -798,7 +919,9 @@ public class Registros extends javax.swing.JFrame {
             edad=(Integer)jSpinnerEdad.getValue();
         }
         String peso=jTextFieldPesoAnimal.getText();
-        String numCrias=jTextFieldNumCrias.getText();
+        String numCrias=calcularNumeroDeCrias();
+        System.out.println(numCrias);
+        
         String cantidadCarne;
         String cantidadLeche;
         if(sexo.equals("Vaca")){
@@ -809,30 +932,34 @@ public class Registros extends javax.swing.JFrame {
             cantidadLeche="0";
         }
         if (noEspaciosEnBlanco(numRegistro) && noEspaciosEnBlanco(""+peso)
-            && noEspaciosEnBlanco(""+numCrias) && noEspaciosEnBlanco(""+cantidadCarne)
+            && noEspaciosEnBlanco(""+cantidadCarne) && !numCrias.equals("")
             && noEspaciosEnBlanco(""+cantidadLeche)){
-            //PASAR
-            if(jRadioButtonNacimientoSI.isSelected() || jRadioButtonNacimientoNO.isSelected()){
-                if(comprobarSiAnimalNoExiste(sexo, numRegistro)){
-                    empresa.darAdmin().registrarAnimal(numRegistro, nombreAnimal,raza,sexo,edad,Float.parseFloat(peso),Integer.parseInt(numCrias),Float.parseFloat(cantidadCarne),Float.parseFloat(cantidadLeche));
-                    limpiarPaneles();
-                }else{
-                    int respuesta=JOptionPane.showOptionDialog(this,"Animal ya existente,¿Qué desea hacer?","Atención",JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,new Object[]{"Modificar","Eliminar","Cancelar"},"Cancelar");
-                    if(respuesta!=-1 && respuesta!=2){
-                        if(respuesta==0){
-                            //Modificar animal
-                            empresa.darAdmin().modificarAnimal(numRegistro, nombreAnimal,raza,sexo,edad,Float.parseFloat(peso),Integer.parseInt(numCrias),Float.parseFloat(cantidadCarne),Float.parseFloat(cantidadLeche));
-                            limpiarPaneles();
-                        }else if(respuesta==1){
-                            //Eliminar animal
-                            empresa.darAdmin().eliminarAnimal(sexo, numRegistro);
-                            limpiarPaneles();
+            if(!numCrias.equals("-1")){                         
+                if((jRadioButtonNacimientoSI.isSelected() || jRadioButtonNacimientoNO.isSelected()) && (jRadioButtonCriasSI.isSelected() || jRadioButtonCriasNO.isSelected())){
+                    if(comprobarSiAnimalNoExiste(sexo, numRegistro)){
+                        empresa.darAdmin().registrarAnimal(numRegistro, nombreAnimal,raza,sexo,edad,Float.parseFloat(peso),Integer.parseInt(numCrias),Float.parseFloat(cantidadCarne),Float.parseFloat(cantidadLeche));
+                        limpiarPaneles();
+                    }else{
+                        int respuesta=JOptionPane.showOptionDialog(this,"Animal ya existente,¿Qué desea hacer?","Atención",JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,new Object[]{"Modificar","Eliminar","Cancelar"},"Cancelar");
+                        if(respuesta!=-1 && respuesta!=2){
+                            if(respuesta==0){
+                                //Modificar animal
+                                empresa.darAdmin().modificarAnimal(numRegistro, nombreAnimal,raza,sexo,edad,Float.parseFloat(peso),Integer.parseInt(numCrias),Float.parseFloat(cantidadCarne),Float.parseFloat(cantidadLeche));
+                                limpiarPaneles();
+                            }else if(respuesta==1){
+                                //Eliminar animal
+                                empresa.darAdmin().eliminarAnimal(sexo, numRegistro);
+                                limpiarPaneles();
+                            }
                         }
                     }
+                }else{
+                    JOptionPane.showMessageDialog(null, "Seleccione una opción", "Advertencia", JOptionPane.WARNING_MESSAGE);
                 }
             }else{
-                JOptionPane.showMessageDialog(null, "Seleccion una opción", "Advertencia", JOptionPane.WARNING_MESSAGE);
-            }                
+                 JOptionPane.showMessageDialog(null, "Uno de los terneros ingresados no esta registrado", "Advertencia", JOptionPane.WARNING_MESSAGE);
+
+            }
         }else{
             JOptionPane.showMessageDialog(null, "No se permiten espacios vacios", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
@@ -911,52 +1038,18 @@ public class Registros extends javax.swing.JFrame {
     /*
     *Formato para fecha
     */
-    
     /*
     *Empresa
     */
     private Empresa empresa;
-
-    private void initOtComponents(Empresa emp){
-        empresa=emp;
-        
-        ((javax.swing.JTextField)jDateChooserInicioLaboral.getDateEditor()).setEditable(false);
-        ((javax.swing.JTextField)jDateChooserFechaNacimiento.getDateEditor()).setEditable(false);
-        ((javax.swing.JSpinner.NumberEditor)jSpinnerEdad.getEditor()).getTextField().setEditable(false);
-        ((javax.swing.JSpinner.NumberEditor)jSpinnerDistanciaCasa.getEditor()).getTextField().setEditable(false);
-        ((javax.swing.JSpinner.NumberEditor)jSpinnerHectareas.getEditor()).getTextField().setEditable(false);
-        ((javax.swing.JSpinner.NumberEditor)jSpinnerNumeroLote.getEditor()).getTextField().setEditable(false);
-        
-        jDateChooserInicioLaboral.getJCalendar().setMaxSelectableDate(new Date());
-        jDateChooserFechaNacimiento.getJCalendar().setMaxSelectableDate(new Date());
-        
-        jDateChooserInicioLaboral.setDate(new Date());
-        jDateChooserFechaNacimiento.setDate(new Date());
-        
-        
-        jPanelRegistroUsuario.setVisible(false);
-        jPanelRegistroAnimal.setVisible(false);
-        jPanelRegistroLote.setVisible(false);
-        jSpinnerEdad.setVisible(false);
-        jLabelEdad.setVisible(false);
-        jDateChooserFechaNacimiento.setVisible(false);
-        holder=new PlaceHolder(jTextFieldNombreUsuarioRegistro,"Crear nombre de usuario");
-        holder=new PlaceHolder(jPasswordFieldContraseñaRegistro,"Crear contraseña");
-        holder=new PlaceHolder(jTextFieldNumeroRegistro,"##########");
-        holder=new PlaceHolder(jTextFieldNombreAnimal,"Opcional");
-        holder=new PlaceHolder(jTextFieldPesoAnimal,"Kilogramos");
-        holder=new PlaceHolder(jTextFieldNumCrias,"Numero de crías");
-        holder=new PlaceHolder(jTextFieldCantidadCarne,"Kilogramos");
-        holder=new PlaceHolder(jTextFieldCantidadLeche,"Litros");
-        
-    }
+    
     
     
     private boolean noEspaciosEnBlanco(String cadena){
         if (!cadena.equals("Crear nombre de usuario") && !cadena.equals("No inferior a $400.000")
             && !cadena.equals("Crear contraseña") && !cadena.equals("##########")
-            && !cadena.equals("Kilogramos") && !cadena.equals("Numero de crías")
-            && !cadena.equals("Litros") ){
+            && !cadena.equals("Kilogramos") && !cadena.equals("Litros") 
+            && !cadena.equals("#registro,#registro,...")){
             return true;
         }else{
             return false;
@@ -1048,6 +1141,15 @@ public class Registros extends javax.swing.JFrame {
             }
         }
     }
+    
+    private boolean comprobarSiAnimalExiste(String numeroReg){
+    
+        if(empresa.darAdmin().comprobarSiVacaExiste(numeroReg) || empresa.darAdmin().comprobarSiToroExiste(numeroReg)){
+            return true;
+        }else{
+            return false;
+           }       
+    }
     /*
     *Comprobar si el lote ingresado es un lote exisente
     */
@@ -1076,11 +1178,43 @@ public class Registros extends javax.swing.JFrame {
         jLabelEdad.setVisible(true);
         jDateChooserFechaNacimiento.setVisible(false);
     }
+    /*
+    *Selección SI tienen crías
+    */
+   
+    /*
+    *Selección NO tienen crías
+    */
     
+    private String calcularNumeroDeCrias(){
+        if(jRadioButtonCriasSI.isSelected()){
+            if(noEspaciosEnBlanco(jTextFieldCrias.getText())){
+                System.err.println(jTextFieldCrias.getText()+"Now");
+                String []numerosSerie=jTextFieldCrias.getText().split(",");
+                int aux=0;
+                for(int i=0; i<numerosSerie.length; i++){
+                    if(comprobarSiAnimalExiste(numerosSerie[i])){
+                        aux+=1;
+                    }else{
+                        return "-1";
+                    }  
+                }
+                if(aux==numerosSerie.length){
+                    
+                    return aux+"";
+                }
+            }else{
+                return "";
+            }
+        }else{
+            return "0";
+        }
+      return "";
+    }
     private int calcularEdad(){
         LocalDate fechaNacimiento = LocalDate.parse(new SimpleDateFormat("dd/MM/yyyy").format(jDateChooserFechaNacimiento.getDate()), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         Period periodo = Period.between(fechaNacimiento,LocalDate.now());
-        return periodo.getYears();
+        return periodo.getMonths();
     }
     
     private void limpiarPaneles(){
@@ -1092,22 +1226,23 @@ public class Registros extends javax.swing.JFrame {
         jTextFieldNumeroRegistro.setText("");
         jTextFieldNombreAnimal.setText("");
         jTextFieldPesoAnimal.setText("");
-        jTextFieldNumCrias.setText("");
         jTextFieldCantidadCarne.setText("");
         jTextFieldCantidadLeche.setText("");
+        jTextFieldCrias.setText("");
         holder=new PlaceHolder(jTextFieldNombreUsuarioRegistro,"Crear nombre de usuario");
         holder=new PlaceHolder(jPasswordFieldContraseñaRegistro,"Crear contraseña");
         holder=new PlaceHolder(jTextFieldNumeroRegistro,"##########");
         holder=new PlaceHolder(jTextFieldNombreAnimal,"Opcional");
         holder=new PlaceHolder(jTextFieldPesoAnimal,"Kilogramos");
-        holder=new PlaceHolder(jTextFieldNumCrias,"Numero de crías");
         holder=new PlaceHolder(jTextFieldCantidadCarne,"Kilogramos");
         holder=new PlaceHolder(jTextFieldCantidadLeche,"Litros"); 
+        holder=new PlaceHolder(jTextFieldCrias,"#registro,#registro,...");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroupAgua;
     private javax.swing.ButtonGroup buttonGroupConoceNacimiento;
+    private javax.swing.ButtonGroup buttonGroupNumeroCrias;
     private javax.swing.JButton jButtonIrAPanelAnimal;
     private javax.swing.JButton jButtonIrAPanelLote;
     private javax.swing.JButton jButtonIrAPanelUsuario;
@@ -1169,6 +1304,8 @@ public class Registros extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButtonNacimientoNO;
     private javax.swing.JRadioButton jRadioButtonNacimientoSI;
     private javax.swing.JRadioButton jRadioButtonSI;
+    private javax.swing.JRadioButton jRadioButtonCriasNO;
+    private javax.swing.JRadioButton jRadioButtonCriasSI;
     private javax.swing.JSpinner jSpinnerDistanciaCasa;
     private javax.swing.JSpinner jSpinnerEdad;
     private javax.swing.JSpinner jSpinnerHectareas;
@@ -1179,9 +1316,9 @@ public class Registros extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldCantidadLeche;
     private javax.swing.JTextField jTextFieldNombreAnimal;
     private javax.swing.JTextField jTextFieldNombreUsuarioRegistro;
-    private javax.swing.JTextField jTextFieldNumCrias;
     private javax.swing.JTextField jTextFieldNumeroRegistro;
     private javax.swing.JTextField jTextFieldPesoAnimal;
+    private javax.swing.JTextField jTextFieldCrias;
     // End of variables declaration//GEN-END:variables
 }
 

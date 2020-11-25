@@ -9,76 +9,43 @@ package Mundo;
  *
  * @author John Silva
  */
-public class Toro {
+public class Toro extends Animal {
     //PARAMETROS
     /*
     *Numero de id del toro(039)
     */
-    private String numeroSerie; 
+    //private String numeroSerie; 
     /*
     *Nombre del toro, en caso de no tener 
     *se rellena como ---------
     */
-    private String nombre;
+    //private String nombre;
     /*
     *Raza del toro
     */
-    private String raza;
+    //private String raza;
     /*
     *Edad del toro
     */
-    private int edad;
+    //private int edad;
     /*
     *Peso del toro en kg
     */
-    private float peso;
+    //private float peso;
     /*
     *Numero de crias del toro
     */
-    private int numCrias;
+    //private int numCrias;
     /*
     *
     */  
-    private float cantidadCarne;
+   // private float cantidadCarne;
     
     //CONTRUCTOR
     /*
     *Crea un toro
     */
-    public Toro(String nNumeroSerie,String nNombre,String nRaza, int nEdad,float nPeso,int nNumCrias,float nCantidadCarne){
-        numeroSerie=nNumeroSerie;
-        nombre=nNombre;
-        raza=nRaza;
-        edad=nEdad;
-        peso=nPeso;
-        numCrias=nNumCrias;
-        cantidadCarne=nCantidadCarne;
-    }
-    public String darNumeroSerie(){
-        return numeroSerie;
-    }
-    
-    public String darNombre(){
-        return nombre;
-    }
-    
-    public String darRaza(){
-        return raza;
-    }
-    
-    public int darEdad(){
-        return edad;
-    }
-    
-    public float darpeso(){
-        return peso;
-    }
-
-    public int darNumeroCrias(){
-        return numCrias;
-    }
-    
-    public float darCantidadCarne(){
-        return cantidadCarne;
+    public Toro(String nNumeroSerie,String nNombre,String nRaza, int nEdad,float nPeso,int nNumCrias,float nCantidadCarne,String cadenaEnfermedades){
+        super( nNumeroSerie, nNombre,nRaza,  nEdad, nPeso, nNumCrias, nCantidadCarne, cadenaEnfermedades);
     }
 }
