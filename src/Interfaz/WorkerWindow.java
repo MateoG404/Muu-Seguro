@@ -1,11 +1,7 @@
 package Interfaz;
 
-
 import Mundo.Empleado;
 import Mundo.Empresa;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Font;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;

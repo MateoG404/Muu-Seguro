@@ -291,9 +291,9 @@ public class PerfilVeterinarios extends javax.swing.JFrame {
                 }
             }
         } else {
-            //this.setVisible(false);
-            //Ventana ventana = new Ventana(empresa);
-            //ventana.setVisible(true);
+            this.setVisible(false);
+            VeterinarioInterfaz ventana = new VeterinarioInterfaz(empresa,veterinario.darNombre());
+            ventana.setVisible(true);
         }
     }//GEN-LAST:event_jButtonRegresarActionPerformed
 

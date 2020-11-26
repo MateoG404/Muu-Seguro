@@ -151,7 +151,7 @@ public class Administrador {
             try{
                 FileWriter animales= new FileWriter(pathAnimals, true);
                 PrintWriter registrar=new PrintWriter(animales);
-                registrar.println(sexo+","+numSerie+","+nombre+","+raza+","+edad+","+peso+","+numCrias+","+ cantidadCarne+","+cantidadLeche+","+"{}");
+                registrar.println(sexo+","+numSerie+","+nombre+","+raza+","+edad+","+peso+","+numCrias+","+ cantidadCarne+","+cantidadLeche+","+";");
                 registrar.close();
             }catch(IOException ex){
                 JOptionPane.showMessageDialog(null, "Ups! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
@@ -172,11 +172,11 @@ public class Administrador {
     /*
     *Al utilizar este metodo se añade al .csv(Lotes) un usuario de tipo empleado o veterinario
     */
-    public void registrarLote(int numero, int hectareas, float distanciaCasa, String razaLote, String calidadPasto, String agua){
+    public void registrarLote(int numero, String razaLote, String calidadPasto, String agua, int x, int y){
         try{
             FileWriter lotes= new FileWriter(pathLot, true);
             PrintWriter registrar=new PrintWriter(lotes);
-            registrar.println(numero+","+hectareas+","+distanciaCasa+","+ razaLote+","+calidadPasto+","+agua);
+            registrar.println(numero+","+ razaLote+","+calidadPasto+","+agua+","+(x+"")+","+(y+""));
             registrar.close();
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null, "Ups! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
@@ -241,14 +241,14 @@ public class Administrador {
     *el archivo .csv con los nuevos
     */
 
-    public void modificarLote(int numero, int nuevaHectareas, float nuevaDistanciaCasa, String nuevaRazaLote, String nuevaCalidadPasto, String nuevaAgua){
+    public void modificarLote(int numero, String nuevaRazaLote, String nuevaCalidadPasto, String nuevaAgua, int x, int y){
         try{
             Path path=FileSystems.getDefault().getPath("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\dataBase\\"+ correoElectronico+"Lotes.csv");
             ArrayList<String> contenidoArchivo = new ArrayList<>(Files.readAllLines(path));
             for(int i=0; i<contenidoArchivo.size();i++){
                 String[] valores = contenidoArchivo.get(i).split(",");
                 if(valores[0].equals(numero+"")){
-                    contenidoArchivo.set(i, numero+","+nuevaHectareas+","+nuevaDistanciaCasa+","+nuevaRazaLote+","+nuevaCalidadPasto+","+nuevaAgua);
+                    contenidoArchivo.set(i, numero+","+nuevaRazaLote+","+nuevaCalidadPasto+","+nuevaAgua+","+(x+"")+","+(y+""));
                     break;
                 }
             }
@@ -387,6 +387,7 @@ public class Administrador {
             BufferedReader br =new BufferedReader(new FileReader(pathAnimals));
             while((linea=br.readLine())!= null){//cada linea del archivo csv
                 String[] valores = linea.split(",");//arreglo de las columnas de cada linea
+              
                 if (valores[0].equals("Vaca")){//si el sexo es vaca
                     Vaca muu=new Vaca(valores[1], valores[2],valores[3],Integer.parseInt(valores[4]),
                     Float.parseFloat(valores[5]), Integer.parseInt(valores[6]), Float.parseFloat(valores[7]),
@@ -443,12 +444,13 @@ public class Administrador {
             BufferedReader br =new BufferedReader(new FileReader(pathLot));
             while((linea=br.readLine())!= null){//cada linea del archivo csv
                 String[] valores = linea.split(",");//arreglo de las columnas de cada linea
-                Lote lot=new Lote(Integer.parseInt(valores[0]), Integer.parseInt(valores[1]), Float.parseFloat(valores[2]), valores[3], valores[4], valores[5]);
+                Lote lot=new Lote(Integer.parseInt(valores[0]), valores[1], valores[2], valores[3],Integer.parseInt(valores[4]), Integer.parseInt(valores[5]));
                 lotes.add(lot);
 
                 }
             }catch(Exception ex){
                 JOptionPane.showMessageDialog(null, "UpsArregloLotes! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                System.out.println(ex.toString());     
         }
         ///PRUEBA OBJETOS
         for(int i=0; i<lotes.size();i++){
@@ -571,8 +573,6 @@ public class Administrador {
              iterador=lotes.get(i);
             if(iterador.darNumero()==numero){
                 properties.add(iterador.darNumero()+"");
-                properties.add(iterador.darHectareas()+"");
-                properties.add(iterador.darDistanciaCasa()+"");
                 properties.add(iterador.darCalidad());
                 properties.add(iterador.darAgua()+"");
                 properties.add(iterador.darRazaLote()+"");

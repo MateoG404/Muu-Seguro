@@ -25,8 +25,6 @@ public class SearchWindow extends javax.swing.JFrame {
     public SearchWindow(int value, Empresa emp) {
         empresa=emp;
         initComponents();
-        texto.setLineWrap(true);
-        texto.setWrapStyleWord(true);
         this.value = value ;
 
     }
@@ -41,6 +39,7 @@ public class SearchWindow extends javax.swing.JFrame {
         this.setLocation(150, 50);
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jPanelTablas = new javax.swing.JPanel();
         chkAnimales = new javax.swing.JCheckBox();
         chkLotes = new javax.swing.JCheckBox();
         chkEmpleados = new javax.swing.JCheckBox();
@@ -51,9 +50,13 @@ public class SearchWindow extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         RegresarButton = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        texto = new javax.swing.JTextArea();
+        jScrollPaneAnimales = new javax.swing.JScrollPane();
+        jScrollPaneUsuarios = new javax.swing.JScrollPane();
+        jScrollPaneLotes = new javax.swing.JScrollPane();
         fondo = new javax.swing.JLabel();
+        jTableAnimales=new javax.swing.JTable();
+        jTableUsuarios=new javax.swing.JTable();
+        jTableLotes=new javax.swing.JTable();
         
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Busqueda");
@@ -65,7 +68,11 @@ public class SearchWindow extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
+        
+        jPanelTablas.setBackground(new java.awt.Color(0, 0, 0));
+        jPanelTablas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelTablas.setBackground(new java.awt.Color(255,255,255));
+        
         chkAnimales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chkAnimalesActionPerformed(evt);
@@ -148,14 +155,19 @@ public class SearchWindow extends javax.swing.JFrame {
         });
         jPanel1.add(RegresarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, 100, 32));
 
-        texto.setColumns(20);
-        texto.setFont(new java.awt.Font("SansSerif", 0, 16)); // NOI18N
-        texto.setRows(5);
-        texto.setEditable(false);
-        jScrollPane1.setViewportView(texto);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 650, 340));
-
+        jScrollPaneAnimales.setBorder(javax.swing.BorderFactory.createTitledBorder ("ANIMALES"));
+        jPanelTablas.add(jScrollPaneAnimales, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 133));
+            
+        jScrollPaneUsuarios.setBorder(javax.swing.BorderFactory.createTitledBorder ("USUARIOS"));
+        jPanelTablas.add(jScrollPaneUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 133, 650, 133));
+        
+        jScrollPaneLotes.setBorder(javax.swing.BorderFactory.createTitledBorder ("LOTES"));
+        jPanelTablas.add(jScrollPaneLotes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 266, 650, 133));
+            
+        
+        getContentPane().add(jPanelTablas, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 170, 650, 400));
+        
         fondo.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\fondoMuu.png")); // NOI18N
         jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 620));
         this.setResizable(false);
@@ -175,80 +187,121 @@ public class SearchWindow extends javax.swing.JFrame {
     }                                              
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-
         if (chkAnimales.isSelected())
         chkAnimales.setSelected(false);
         if(chkEmpleados.isSelected())
         chkEmpleados.setSelected(false);
         if(chkLotes.isSelected())
         chkLotes.setSelected(false);
-
-        texto.setText(" ");
     }                                        
 
     private void BusquedaButtonActionPerformed(java.awt.event.ActionEvent evt) {                                               
-
-        String message = "" ;
-        int cont = 0 ;
+        
         if(chkAnimales.isSelected()){
-            message+="ANIMALES\nSexo | Numero | Nombre | Raza | Edad | Peso(kg) | Crías | kgs.Carne | Lts.Leche|\n";
-            for (int i=0; i<empresa.darAdmin().darArregloToros().size();i++){
-                message+="Toro |";
-                message+=empresa.darAdmin().darArregloToros().get(i).darNumeroSerie()+" | ";
-                message+=empresa.darAdmin().darArregloToros().get(i).darNombre()+" | ";
-                message+=empresa.darAdmin().darArregloToros().get(i).darRaza()+" | ";
-                message+=empresa.darAdmin().darArregloToros().get(i).darEdad()+" | ";
-                message+=empresa.darAdmin().darArregloToros().get(i).darpeso()+" | ";
-                message+=empresa.darAdmin().darArregloToros().get(i).darNumeroCrias()+" | ";
-                message+=empresa.darAdmin().darArregloToros().get(i).darCantidadCarne()+" | ";
-                message+="\n";
+            ArrayList<String[]>filasTemp=new ArrayList<>();
+            String[] fila;
+            for(int i=0; i<empresa.darAdmin().darArregloToros().size();i++){
+                fila=new String[9];
+                fila[0]=("Toro");
+                fila[1]=(empresa.darAdmin().darArregloToros().get(i).darNumeroSerie());
+                fila[2]=(empresa.darAdmin().darArregloToros().get(i).darNombre());
+                fila[3]=(empresa.darAdmin().darArregloToros().get(i).darRaza());
+                fila[4]=(empresa.darAdmin().darArregloToros().get(i).darEdad()+"");
+                fila[5]=(empresa.darAdmin().darArregloToros().get(i).darpeso()+"");                
+                fila[6]=(empresa.darAdmin().darArregloToros().get(i).darNumeroCrias()+"");
+                fila[7]=(empresa.darAdmin().darArregloToros().get(i).darCantidadCarne()+"");
+                fila[8]=("NULL");
+                filasTemp.add(fila);
             }
-             for (int i=0; i<empresa.darAdmin().darArregloVacas().size();i++){
-                message+="Vaca |";
-                message+=empresa.darAdmin().darArregloVacas().get(i).darNumeroSerie()+" | ";
-                message+=empresa.darAdmin().darArregloVacas().get(i).darNombre()+" | "; 
-                message+=empresa.darAdmin().darArregloVacas().get(i).darRaza()+" | ";
-                message+=empresa.darAdmin().darArregloVacas().get(i).darEdad()+" | ";
-                message+=empresa.darAdmin().darArregloVacas().get(i).darpeso()+" | ";
-                message+=empresa.darAdmin().darArregloVacas().get(i).darNumeroCrias()+" | ";
-                message+=empresa.darAdmin().darArregloVacas().get(i).darCantidadCarne()+" | ";
-                message+=empresa.darAdmin().darArregloVacas().get(i).darCantidadLeche()+" | ";
-                message+="\n";
+            for(int i=0; i<empresa.darAdmin().darArregloVacas().size();i++){
+                fila=new String[9];
+                fila[0]=("Vaca");
+                fila[1]=(empresa.darAdmin().darArregloVacas().get(i).darNumeroSerie());
+                fila[2]=(empresa.darAdmin().darArregloVacas().get(i).darNombre());
+                fila[3]=(empresa.darAdmin().darArregloVacas().get(i).darRaza());
+                fila[4]=(empresa.darAdmin().darArregloVacas().get(i).darEdad()+"");
+                fila[5]=(empresa.darAdmin().darArregloVacas().get(i).darpeso()+"");                
+                fila[6]=(empresa.darAdmin().darArregloVacas().get(i).darNumeroCrias()+"");
+                fila[7]=(empresa.darAdmin().darArregloVacas().get(i).darCantidadCarne()+"");
+                fila[8]=(empresa.darAdmin().darArregloVacas().get(i).darCantidadLeche()+"");
+                filasTemp.add(fila);
             }
-            message+="\n"; 
+            
+            String[][] filas=new String[filasTemp.size()][9];
+            System.err.println("Tamaño:"+filasTemp.size());
+            for(int i=0; i<filasTemp.size();i++){
+                for(int j=0; j<filasTemp.get(0).length;j++){
+                    filas[i][j]=filasTemp.get(i)[j];
+                }
+            }
+            jTableAnimales.setModel(new javax.swing.table.DefaultTableModel(
+            filas,
+            new String [] {
+                "Sexo", "Número", "Nombre", "Raza", "Edad", "Peso(kg)", "Crías", "kgs.Carne", "Lts.Leche"
+                }
+            ));
+            jScrollPaneAnimales.setViewportView(jTableAnimales);
         }         
         if(chkEmpleados.isSelected()){ 
-            message+="USUARIOS\n Tipo | Salario | Nombre | Inicio laboral |\n";
-           for(int i=0;i<empresa.darAdmin().darArregloEmpleados().size();i++){
-               message+="Empleado |";
-               message+=empresa.darAdmin().darArregloEmpleados().get(i).darSalario()+" | ";
-               message+=empresa.darAdmin().darArregloEmpleados().get(i).darNombre()+" | ";
-               message+=empresa.darAdmin().darArregloEmpleados().get(i).darFechaInicioLaboral()+" | ";
-               message+="\n";
-           }
-           for(int i=0;i<empresa.darAdmin().darArregloVeterinarios().size();i++){
-               message+="Veterinario |";
-               message+=empresa.darAdmin().darArregloVeterinarios().get(i).darSalario()+" | ";
-               message+=empresa.darAdmin().darArregloVeterinarios().get(i).darNombre()+" | ";
-               message+=empresa.darAdmin().darArregloVeterinarios().get(i).darFechaInicioLaboral()+" | ";
-               message+="\n";
-           }
-           message+="\n";
+            ArrayList<String[]>filasTemp=new ArrayList<>();
+            String[] fila;
+            for(int i=0; i<empresa.darAdmin().darArregloEmpleados().size();i++){
+                fila=new String[4];
+                fila[0]="Empleado";
+                fila[1]=empresa.darAdmin().darArregloEmpleados().get(i).darNombre();
+                fila[2]=empresa.darAdmin().darArregloEmpleados().get(i).darSalario()+"";
+                fila[3]=empresa.darAdmin().darArregloEmpleados().get(i).darFechaInicioLaboral();
+                filasTemp.add(fila);
+            }
+            for(int i=0; i<empresa.darAdmin().darArregloVeterinarios().size();i++){
+                fila=new String[4];
+                fila[0]="Veterinario";
+                fila[1]=empresa.darAdmin().darArregloVeterinarios().get(i).darNombre();
+                fila[2]=empresa.darAdmin().darArregloVeterinarios().get(i).darSalario()+"";
+                fila[3]=empresa.darAdmin().darArregloVeterinarios().get(i).darFechaInicioLaboral();
+                filasTemp.add(fila);
+            }
+            
+            String[][] filasU=new String[filasTemp.size()][4];
+            for(int i=0; i<filasTemp.size();i++){
+                for(int j=0; j<filasTemp.get(0).length;j++){
+                    filasU[i][j]=filasTemp.get(i)[j];
+                }
+            }
+            jTableUsuarios.setModel(new javax.swing.table.DefaultTableModel(
+            filasU,
+            new String [] {
+                "Tipo", "Nombre", "Salario", "Fecha de inicio laboral"
+                }
+            ));
+            jScrollPaneUsuarios.setViewportView(jTableUsuarios);
         }
         if(chkLotes.isSelected()){
-            message+="LOTES\nNúmero | Raza | Hectáreas | Distancia casa(KM) | Calidad | Punto agua |\n";
-            for(int i=0;i<empresa.darAdmin().darArregloLote().size();i++){
-                message+=empresa.darAdmin().darArregloLote().get(i).darNumero()+" | ";
-                message+=empresa.darAdmin().darArregloLote().get(i).darRazaLote()+" | ";
-                message+=empresa.darAdmin().darArregloLote().get(i).darHectareas()+" | ";
-                message+=empresa.darAdmin().darArregloLote().get(i).darDistanciaCasa()+" | ";
-                message+=empresa.darAdmin().darArregloLote().get(i).darCalidad()+" | ";
-                message+=empresa.darAdmin().darArregloLote().get(i).darAgua()+" | ";
-                message+="\n";
+            ArrayList<String[]>filasTemp=new ArrayList<>();
+            String[] fila;
+            for(int i=0; i<empresa.darAdmin().darArregloLote().size();i++){
+                fila=new String[4];
+                fila[0]=empresa.darAdmin().darArregloLote().get(i).darNumero()+"";
+                fila[1]=empresa.darAdmin().darArregloLote().get(i).darRazaLote();  
+                fila[2]=empresa.darAdmin().darArregloLote().get(i).darCalidad()+"";
+                fila[3]=empresa.darAdmin().darArregloLote().get(i).darAgua();
+                filasTemp.add(fila);
             }
-            message+="\n";
+            
+            String[][] filasL=new String[filasTemp.size()][4];
+            for(int i=0; i<filasTemp.size();i++){
+                for(int j=0; j<filasTemp.get(0).length;j++){
+                    filasL[i][j]=filasTemp.get(i)[j];
+                }
+            }
+            jTableLotes.setModel(new javax.swing.table.DefaultTableModel(
+            filasL,
+            new String [] {
+                "Número", "Raza","Calidad","Punto agua"
+                }
+            ));
+            jScrollPaneLotes.setViewportView(jTableLotes);
         }  
-        texto.setText(message);
         
         
     }                                              
@@ -277,7 +330,14 @@ public class SearchWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea texto;
+    private javax.swing.JPanel jPanelTablas;
+    private javax.swing.JScrollPane jScrollPaneAnimales;
+    private javax.swing.JScrollPane jScrollPaneUsuarios;
+    private javax.swing.JScrollPane jScrollPaneLotes;
+    private javax.swing.JTable jTableAnimales;
+    private javax.swing.JTable jTableUsuarios;
+    private javax.swing.JTable jTableLotes;
+    
+
     // End of variables declaration                   
 }

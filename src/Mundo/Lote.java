@@ -12,30 +12,21 @@ package Mundo;
 public class Lote {
     
    private int numero; 
-   private int hectareas;
-   private float distanciaCasa;
    private String razaLote;
    private String calidadPasto;
    private String agua; 
+   private int X;
+   private int Y;
    
-   public Lote(int nNumero, int nHectareas, float nDistanciaCasa, String nRazaLote, String nCalidadPasto, String nAgua){
+   public Lote(int nNumero, String nRazaLote, String nCalidadPasto, String nAgua, int x, int y){
         numero=nNumero;
-        hectareas=nHectareas;
-        distanciaCasa=nDistanciaCasa;
+    
         razaLote=nRazaLote;
         calidadPasto=nCalidadPasto;
         agua=nAgua;
    }
    public int darNumero(){
        return numero;
-   }
-   
-    public int darHectareas(){
-       return hectareas;
-   }
-    
-    public float darDistanciaCasa(){
-       return distanciaCasa;
    }
    public String darRazaLote(){
        return razaLote;

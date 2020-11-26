@@ -62,11 +62,10 @@ public class Ventana extends javax.swing.JFrame {
     // Return a String with the properties of each Set
     public String  getProperties(String lote) throws IOException{
         String [] temp =admin.getProperties(lote).toArray(new String[admin.getProperties(lote).size()]);
-        String properties = temp[0] + "\n" + "Hectareas " +temp[1] + "\n";
-        properties += "Distancia a casa Principal " +temp[2] + "\n";
-        properties += "Calidad Pasto " + temp[3] + "\n" ;
-        properties += "Punto de Agua " + temp[4] + "\n" ;
-        properties += "Raza " + temp[5] ;
+        String properties = temp[0] + "\n";
+        properties += "Calidad Pasto " + temp[1] + "\n" ;
+        properties += "Punto de Agua " + temp[2] + "\n" ;
+        properties += "Raza " + temp[3] ;
         
         return properties ;
     }

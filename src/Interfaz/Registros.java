@@ -45,21 +45,19 @@ public class Registros extends javax.swing.JFrame {
         buttonGroupConoceNacimiento = new javax.swing.ButtonGroup();
         buttonGroupNumeroCrias=new javax.swing.ButtonGroup();
         jPanelRegistroLote = new javax.swing.JPanel();
-        jLabelDistancia = new javax.swing.JLabel();
         jLabelNumeroLote = new javax.swing.JLabel();
         jLabelAgua = new javax.swing.JLabel();
         jLabelRazaLote = new javax.swing.JLabel();
         jLabelImageRegistrarLote = new javax.swing.JLabel();
-        jLabelHectareas = new javax.swing.JLabel();
+ 
         jLabelLinea3 = new javax.swing.JLabel();
         jLabelLinea4 = new javax.swing.JLabel();
         jLabelRegistrarLote = new javax.swing.JLabel();
         jLabelPasto = new javax.swing.JLabel();
         jRadioButtonNO = new javax.swing.JRadioButton();
         jRadioButtonSI = new javax.swing.JRadioButton();
-        jSpinnerDistanciaCasa = new javax.swing.JSpinner();
-        jSpinnerHectareas = new javax.swing.JSpinner();
         jSpinnerNumeroLote = new javax.swing.JSpinner();
+        jButtonRegistroUbicacion = new javax.swing.JButton();
         jButtonRegistrarLote = new javax.swing.JButton();
         jComboBoxCalidadPasto = new javax.swing.JComboBox<>();
         jComboBoxRazaLote = new javax.swing.JComboBox<>();
@@ -132,8 +130,6 @@ public class Registros extends javax.swing.JFrame {
         ((javax.swing.JTextField)jDateChooserInicioLaboral.getDateEditor()).setEditable(false);
         ((javax.swing.JTextField)jDateChooserFechaNacimiento.getDateEditor()).setEditable(false);
         ((javax.swing.JSpinner.NumberEditor)jSpinnerEdad.getEditor()).getTextField().setEditable(false);
-        ((javax.swing.JSpinner.NumberEditor)jSpinnerDistanciaCasa.getEditor()).getTextField().setEditable(false);
-        ((javax.swing.JSpinner.NumberEditor)jSpinnerHectareas.getEditor()).getTextField().setEditable(false);
         ((javax.swing.JSpinner.NumberEditor)jSpinnerNumeroLote.getEditor()).getTextField().setEditable(false);
         
         jDateChooserInicioLaboral.getJCalendar().setMaxSelectableDate(new Date());
@@ -161,10 +157,7 @@ public class Registros extends javax.swing.JFrame {
         jPanelRegistroLote.setBackground(new java.awt.Color(104, 191, 52));
         jPanelRegistroLote.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelDistancia.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jLabelDistancia.setForeground(new java.awt.Color(97, 97, 97));
-        jLabelDistancia.setText("Distancia casa principal");
-        jPanelRegistroLote.add(jLabelDistancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 224, 140, -1));
+      
 
         jLabelNumeroLote.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLabelNumeroLote.setForeground(new java.awt.Color(97, 97, 97));
@@ -174,20 +167,17 @@ public class Registros extends javax.swing.JFrame {
         jLabelAgua.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLabelAgua.setForeground(new java.awt.Color(97, 97, 97));
         jLabelAgua.setText("¿Punto de agua?");
-        jPanelRegistroLote.add(jLabelAgua, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, 110, 20));
+        jPanelRegistroLote.add(jLabelAgua, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, 110, 20));
 
         jLabelRazaLote.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLabelRazaLote.setForeground(new java.awt.Color(97, 97, 97));
         jLabelRazaLote.setText("Raza ");
-        jPanelRegistroLote.add(jLabelRazaLote, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 284, 100, -1));
+        jPanelRegistroLote.add(jLabelRazaLote, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 224, 100, -1));
 
         jLabelImageRegistrarLote.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\registroLote.png")); // NOI18N
         jPanelRegistroLote.add(jLabelImageRegistrarLote, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 150, 150));
 
-        jLabelHectareas.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        jLabelHectareas.setForeground(new java.awt.Color(97, 97, 97));
-        jLabelHectareas.setText("Numero de hectareas");
-        jPanelRegistroLote.add(jLabelHectareas, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 224, 130, -1));
+        
 
         jLabelLinea3.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\linea.png")); // NOI18N
         jPanelRegistroLote.add(jLabelLinea3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 115, 20));
@@ -205,26 +195,32 @@ public class Registros extends javax.swing.JFrame {
         jLabelPasto.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jLabelPasto.setForeground(new java.awt.Color(97, 97, 97));
         jLabelPasto.setText("Calidad del pasto");
-        jPanelRegistroLote.add(jLabelPasto, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 284, 100, -1));
+        jPanelRegistroLote.add(jLabelPasto, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 224, 100, -1));
 
         jRadioButtonNO.setBackground(new java.awt.Color(97, 97, 97));
         buttonGroupAgua.add(jRadioButtonNO);
         jRadioButtonNO.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jRadioButtonNO.setText("NO");
         jRadioButtonNO.setContentAreaFilled(false);
-        jPanelRegistroLote.add(jRadioButtonNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 360, 60, -1));
+        jPanelRegistroLote.add(jRadioButtonNO, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 60, -1));
 
         jRadioButtonSI.setBackground(new java.awt.Color(97, 97, 97));
         buttonGroupAgua.add(jRadioButtonSI);
         jRadioButtonSI.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jRadioButtonSI.setText("SI");
         jRadioButtonSI.setContentAreaFilled(false);
-        jPanelRegistroLote.add(jRadioButtonSI, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, 50, -1));
-
-        jSpinnerDistanciaCasa.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(1.0f), Float.valueOf(0.1f), Float.valueOf(10000.0f), Float.valueOf(0.1f)));
-        jPanelRegistroLote.add(jSpinnerDistanciaCasa, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 240, 120, 30));
-        jPanelRegistroLote.add(jSpinnerHectareas, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 120, 30));
-
+        jPanelRegistroLote.add(jRadioButtonSI, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, 50, -1));
+            
+        jButtonRegistroUbicacion.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jButtonRegistroUbicacion.setForeground(new java.awt.Color(97, 97, 97));
+        jButtonRegistroUbicacion.setText("Rgistrar ubicación");
+        jButtonRegistroUbicacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRegistroUbicacionActionPerformed(evt);
+            }
+        });
+        jPanelRegistroLote.add( jButtonRegistroUbicacion,new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 345, 150, 30));
+        
         jSpinnerNumeroLote.setModel(new javax.swing.SpinnerNumberModel(1, 1, 200, 1));
         jPanelRegistroLote.add(jSpinnerNumeroLote, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 120, 30));
 
@@ -246,12 +242,12 @@ public class Registros extends javax.swing.JFrame {
         jComboBoxCalidadPasto.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jComboBoxCalidadPasto.setForeground(new java.awt.Color(97, 97, 97));
         jComboBoxCalidadPasto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Buena", "Regular", "Mala" }));
-        jPanelRegistroLote.add(jComboBoxCalidadPasto, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, 130, 30));
+        jPanelRegistroLote.add(jComboBoxCalidadPasto, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 240, 130, 30));
 
         jComboBoxRazaLote.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jComboBoxRazaLote.setForeground(new java.awt.Color(97, 97, 97));
         jComboBoxRazaLote.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Holstein", "Normando", "Jersey" }));
-        jPanelRegistroLote.add(jComboBoxRazaLote, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 130, 30));
+        jPanelRegistroLote.add(jComboBoxRazaLote, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 130, 30));
 
         getContentPane().add(jPanelRegistroLote, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, 510, 600));
 
@@ -977,39 +973,54 @@ public class Registros extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_jComboBoxTipoSexoActionPerformed
     /*
+    *Boton registro ubicación
+    */
+    private void jButtonRegistroUbicacionActionPerformed(java.awt.event.ActionEvent evt){
+        //this.setEnabled(false);
+        Tabla_Lotes tab=new Tabla_Lotes(this, empresa);
+    }
+    
+    /*
     *Boton continuar registro lote
     */
     private void jButtonRegistrarLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarLoteActionPerformed
        int numeroLote=(Integer)jSpinnerNumeroLote.getValue();
-       int hectareas=(Integer)jSpinnerHectareas.getValue();
-       float distanciaCasa=(Float)jSpinnerDistanciaCasa.getValue();
+       
        String razaLote=(String)jComboBoxRazaLote.getSelectedItem();
        String calidadPasto=(String)jComboBoxCalidadPasto.getSelectedItem();
        String puntoAgua="";
+       int x=xValueLote;
+       int y=yValueLote;
        if(jRadioButtonSI.isSelected()){
            puntoAgua="SI";
        }else if(jRadioButtonNO.isSelected()){
            puntoAgua="NO";
        }
        if(jRadioButtonSI.isSelected() || jRadioButtonNO.isSelected()){
-           if(comprobarSiLoteNoExiste(numeroLote)){
-               empresa.darAdmin().registrarLote(numeroLote, hectareas, distanciaCasa, razaLote, calidadPasto, puntoAgua);
-               JOptionPane.showMessageDialog(null, "Lote registrado exitosamente", "Advertencia", JOptionPane.INFORMATION_MESSAGE);
-               limpiarPaneles();
-           }else{
-               int respuesta=JOptionPane.showOptionDialog(this,"Lote ya existente,¿Qué desea hacer?","Atención",JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,new Object[]{"Modificar","Eliminar","Cancelar"},"Cancelar");
-                if(respuesta!=-1 && respuesta!=2){
-                    if(respuesta==0){
-                        //Modificar Lote
-                        empresa.darAdmin().modificarLote(numeroLote, hectareas, distanciaCasa, razaLote, calidadPasto, puntoAgua);
-                        limpiarPaneles();
-                    }else if(respuesta==1){
-                        //Eliminar lote
-                        empresa.darAdmin().eliminarLote(numeroLote);
-                        limpiarPaneles();
-                    }
+            if(x!=-1 && y!=-1){
+               if(comprobarSiLoteNoExiste(numeroLote)){
+                    xValueLote=-1;
+                    yValueLote=-1;
+                    empresa.darAdmin().registrarLote(numeroLote, razaLote, calidadPasto, puntoAgua, x,y);
+                    JOptionPane.showMessageDialog(null, "Lote registrado exitosamente", "Advertencia", JOptionPane.INFORMATION_MESSAGE);
+                    limpiarPaneles();
+                }else{
+                    int respuesta=JOptionPane.showOptionDialog(this,"Lote ya existente,¿Qué desea hacer?","Atención",JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,new Object[]{"Modificar","Eliminar","Cancelar"},"Cancelar");
+                     if(respuesta!=-1 && respuesta!=2){
+                         if(respuesta==0){
+                             //Modificar Lote
+                             empresa.darAdmin().modificarLote(numeroLote, razaLote, calidadPasto, puntoAgua,x,y);
+                             limpiarPaneles();
+                         }else if(respuesta==1){
+                             //Eliminar lote
+                             empresa.darAdmin().eliminarLote(numeroLote);
+                             limpiarPaneles();
+                         }
+                     }
                 }
-           }
+            }else{
+                JOptionPane.showMessageDialog(null, "Seleccion la ubicación", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            } 
        }else{
            JOptionPane.showMessageDialog(null, "Seleccion una opción", "Advertencia", JOptionPane.WARNING_MESSAGE);
        }
@@ -1251,6 +1262,7 @@ public class Registros extends javax.swing.JFrame {
     private javax.swing.JButton jButtonRegistrarUsuario;
     private javax.swing.JButton jButtonVerContraseñaRegistroUsuario;
     private javax.swing.JButton jButtonVolverVentanaPrincipal;
+    private javax.swing.JButton jButtonRegistroUbicacion; 
     private javax.swing.JComboBox<String> jComboBoxCalidadPasto;
     private javax.swing.JComboBox<String> jComboBoxRazaLote;
     private javax.swing.JComboBox<String> jComboBoxTipoRaza;
@@ -1265,10 +1277,8 @@ public class Registros extends javax.swing.JFrame {
     private javax.swing.JLabel jLabePeso;
     private javax.swing.JLabel jLabeQueDeseaReguistrar;
     private javax.swing.JLabel jLabelAgua;
-    private javax.swing.JLabel jLabelDistancia;
     private javax.swing.JLabel jLabelEdad;
     private javax.swing.JLabel jLabelFechaNacimiento;
-    private javax.swing.JLabel jLabelHectareas;
     private javax.swing.JLabel jLabelImageRegistrarAnimal;
     private javax.swing.JLabel jLabelImageRegistrarLote;
     private javax.swing.JLabel jLabelImageRegistrarUsuario;
@@ -1306,9 +1316,7 @@ public class Registros extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButtonSI;
     private javax.swing.JRadioButton jRadioButtonCriasNO;
     private javax.swing.JRadioButton jRadioButtonCriasSI;
-    private javax.swing.JSpinner jSpinnerDistanciaCasa;
     private javax.swing.JSpinner jSpinnerEdad;
-    private javax.swing.JSpinner jSpinnerHectareas;
     private javax.swing.JSpinner jSpinnerNumeroLote;
     private javax.swing.JSpinner jSpinnerSalario;
     private javax.swing.JTextField jTextFieldAuxiliarContraseña;
@@ -1319,6 +1327,9 @@ public class Registros extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldNumeroRegistro;
     private javax.swing.JTextField jTextFieldPesoAnimal;
     private javax.swing.JTextField jTextFieldCrias;
+    public static int xValueLote=-1;
+    public static int yValueLote=-1;
+
     // End of variables declaration//GEN-END:variables
 }
 

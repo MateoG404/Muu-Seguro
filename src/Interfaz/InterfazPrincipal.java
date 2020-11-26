@@ -9,9 +9,7 @@ package Interfaz;
  *
  * @author John Silva
  */
-import Mundo.Empleado;
 import Mundo.Empresa;
-import Mundo.Veterinario;
 import com.placeholder.PlaceHolder;
 import java.awt.*;
 import javax.swing.*;
@@ -657,7 +655,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                             return true;
                         }   
                     }
-                }catch(Exception ex){
+                }catch(IOException ex){
                     JOptionPane.showMessageDialog(null, "Ups662! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
                     return false;
                 }
@@ -797,6 +795,6 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldRegistroUsuario;
     private javax.swing.JLabel tituloMuu;
     // End of variables declaration//GEN-END:variables
-    //Variables propias
+
 }
 
