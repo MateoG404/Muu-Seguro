@@ -387,7 +387,6 @@ public class Administrador {
             BufferedReader br =new BufferedReader(new FileReader(pathAnimals));
             while((linea=br.readLine())!= null){//cada linea del archivo csv
                 String[] valores = linea.split(",");//arreglo de las columnas de cada linea
-              
                 if (valores[0].equals("Vaca")){//si el sexo es vaca
                     Vaca muu=new Vaca(valores[1], valores[2],valores[3],Integer.parseInt(valores[4]),
                     Float.parseFloat(valores[5]), Integer.parseInt(valores[6]), Float.parseFloat(valores[7]),
@@ -421,10 +420,10 @@ public class Administrador {
                     Toro muu=new Toro(valores[1], valores[2],valores[3],Integer.parseInt(valores[4]),
                     Float.parseFloat(valores[5]), Integer.parseInt(valores[6]), Float.parseFloat(valores[7]), valores[9]);
                     toros.add(muu);
-                    }
                 }
-            }catch(Exception ex){
-                JOptionPane.showMessageDialog(null, "UpsarregloToros! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }catch(IOException ex){
+            JOptionPane.showMessageDialog(null, "UpsarregloToros! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
         }
          //PRUEBA OBJETOS
         for(int i=0; i<toros.size();i++){
@@ -443,14 +442,18 @@ public class Administrador {
         try{
             BufferedReader br =new BufferedReader(new FileReader(pathLot));
             while((linea=br.readLine())!= null){//cada linea del archivo csv
-                String[] valores = linea.split(",");//arreglo de las columnas de cada linea
-                Lote lot=new Lote(Integer.parseInt(valores[0]), valores[1], valores[2], valores[3],Integer.parseInt(valores[4]), Integer.parseInt(valores[5]));
-                lotes.add(lot);
-
+                if(linea.split(",").length!=2){
+                    System.out.println("Entra:(");
+                    String[] valores = linea.split(",");//arreglo de las columnas de cada linea
+                    Lote lot=new Lote(Integer.parseInt(valores[0]), valores[1], valores[2], valores[3],Integer.parseInt(valores[4]), Integer.parseInt(valores[5]));
+                    lotes.add(lot);
+                }else{
+                     System.out.println("Entra:)");
                 }
-            }catch(Exception ex){
-                JOptionPane.showMessageDialog(null, "UpsArregloLotes! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
-                System.out.println(ex.toString());     
+            }
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "UpsArregloLotes! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+            System.err.println("error: "+ex.toString());     
         }
         ///PRUEBA OBJETOS
         for(int i=0; i<lotes.size();i++){

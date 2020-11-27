@@ -12,21 +12,21 @@ public class Tabla_Lotes extends javax.swing.JFrame{
     private javax.swing.JPanel contenedorPrincipal;
     private Interfaz.Registros ventanaRegistro;
     private Empresa empresa;
-    public Tabla_Lotes(Interfaz.Registros ventanaRegistros, Empresa emp){
+    public Tabla_Lotes(Interfaz.Registros ventanaRegistros, Empresa emp, int w,int h){
         this.ventanaRegistro=ventanaRegistro;
         empresa=emp;
-        initComponents();
+        initComponents(w,h);
     }
-    private void initComponents(){
+    private void initComponents(int w, int h){
         contenedorPrincipal=new javax.swing.JPanel();
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(HIDE_ON_CLOSE);
         setLayout(new java.awt.BorderLayout());
         setTitle("Muu Seguro");
         setResizable(false);
         contenedorPrincipal.setLayout(new java.awt.GridBagLayout());
         //Scanner sc= new Scanner(System.in);
-        int widht= 1000;
-        int height= 1000;
+        int widht= w;
+        int height= h;
                //para el widht
         if(widht>=10 && widht<50){widht=2;}
         if(widht>=50 && widht<=100){widht=4;}
@@ -54,7 +54,6 @@ public class Tabla_Lotes extends javax.swing.JFrame{
         int x=0;
         int y=0;
         for (int row = 0; row < widht; row++) {
-
             for (int col = 0; col <height; col++) {
                 gbc.gridx = col;
                 gbc.gridy = row;
@@ -81,13 +80,7 @@ public class Tabla_Lotes extends javax.swing.JFrame{
         setLocationRelativeTo(null);
         setVisible(true);
         pack();
-       }
-    /*public int getXselectValue(){
-        return new CellPane(0,0,ventanaRegistro,this, empresa).getXselectValue();
     }
-    public int getYselectValue(){
-        return  new CellPane(0,0,ventanaRegistro, this, empresa).getYselectValue();
-    }*/
 }
 
 class CellPane extends javax.swing.JPanel{
@@ -122,17 +115,20 @@ class CellPane extends javax.swing.JPanel{
     }
     public void cargarLotes(){
         String linea;
+        registrados.clear();
         try{
             BufferedReader br =new BufferedReader(new FileReader("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\dataBase\\"+empresa.darAdmin().darCorreo()+"Lotes.csv"));
             while((linea=br.readLine())!= null){//cada linea del archivo csv
-                String[] valores = linea.split(",");//arreglo de las columnas de cada linea
-                String coordenadas;   
-                coordenadas=valores[4]+"-"+valores[5];
-                System.err.println("Coordenadas: "+coordenadas);
-                registrados.add(coordenadas);                    
+                if(linea.split(",").length!=2){    
+                    String[] valores = linea.split(",");//arreglo de las columnas de cada linea
+                    String coordenadas;   
+                    coordenadas=valores[4]+"-"+valores[5];
+                    System.err.println("Coordenadas: "+coordenadas);
+                    registrados.add(coordenadas);                    
                 }
-            }catch(IOException ex){
-                JOptionPane.showMessageDialog(null, "UpsArregloLotes! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }catch(IOException ex){
+            JOptionPane.showMessageDialog(null, "Ups! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
     
@@ -158,11 +154,5 @@ class CellPane extends javax.swing.JPanel{
     public java.awt.Dimension getPreferredSize() {
         return new java.awt.Dimension(40, 40);
     }
-    /*public int getXselectValue(){
-        return xSelect;
-    }
-    public int getYselectValue(){
-        return ySelect;
-    }*/
 }
 

@@ -681,6 +681,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 /*
                 *Establecer la ruta de busqueda para verificaciones
                 */
+                System.err.println(this.getClass().getResourceAsStream("/dataBase/"+correo+"Usuarios.csv").toString());
                 pathUsers="C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\dataBase\\"+correo+"Usuarios.csv";
                 /*
                 *Buscar el usuario EMPLEADO o VETERINARIO

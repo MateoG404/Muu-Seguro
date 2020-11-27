@@ -12,6 +12,11 @@ package Interfaz;
 import com.placeholder.PlaceHolder;
 import javax.swing.JOptionPane;
 import Mundo.Empresa;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
@@ -769,11 +774,41 @@ public class Registros extends javax.swing.JFrame {
     *Cambiar a panel registrar lote
     */
     private void jButtonIrAPanelLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIrAPanelLoteActionPerformed
-        jPanelRegistroUsuario.setVisible(false);
-        jPanelRegistroAnimal.setVisible(false);
-        jPanelRegistroLote.setVisible(true);
-        jPanelInicial.setVisible(false);
-        limpiarPaneles();
+        String linea;
+        String pathLot="C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\dataBase\\"+empresa.darAdmin().darCorreo()+"Lotes.csv";
+        try{
+            BufferedReader br =new BufferedReader(new FileReader(pathLot));
+            if((linea=br.readLine())==null){//primera linea del archivo csv
+                javax.swing.JTextField x = new javax.swing.JTextField();
+                javax.swing.JTextField y = new javax.swing.JTextField();
+                x.addKeyListener(new java.awt.event.KeyAdapter() {
+                    public void keyPressed(java.awt.event.KeyEvent evt) {
+                        jTextFieldCoordenadasKeyPressed(evt,x);
+                    }
+                });
+                y.addKeyListener(new java.awt.event.KeyAdapter() {
+                    public void keyPressed(java.awt.event.KeyEvent evt) {
+                        jTextFieldCoordenadasKeyPressed(evt,y);
+                    }
+                });
+                Object[] mensaje = {"Ingresa el tamaño relativo de la finca","Ancho(Km): ", x,"Alto(Km): ", y};
+                int select = JOptionPane.showConfirmDialog(null, mensaje, "Tamaño finca", JOptionPane.OK_CANCEL_OPTION);
+                if (select == JOptionPane.OK_OPTION) {
+                    registrarTamañoFinca(x.getText(),y.getText(),pathLot);
+                }
+            }else{
+                int [] valores=valoresTamañoFinca(pathLot);
+                width=valores[0];
+                height=valores[1];
+                jPanelRegistroUsuario.setVisible(false);
+                jPanelRegistroAnimal.setVisible(false);
+                jPanelRegistroLote.setVisible(true);
+                jPanelInicial.setVisible(false);
+                limpiarPaneles();
+            }
+        }catch(IOException ex){
+                JOptionPane.showMessageDialog(null, "Ups! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButtonIrAPanelLoteActionPerformed
     /*
     *Eventos para evitar el ingreso de comas
@@ -862,7 +897,18 @@ public class Registros extends javax.swing.JFrame {
              JOptionPane.showMessageDialog(null, "No se permiten espacios vacios", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jButtonRegistrarUsuarioActionPerformed
-
+    
+    private void jTextFieldCoordenadasKeyPressed(java.awt.event.KeyEvent evt, javax.swing.JTextField texto) {//GEN-FIRST:event_jTextFieldCantidadLecheKeyPressed
+        if(ingresoLetrasEnteros(evt.getKeyCode())){
+           JOptionPane.showMessageDialog(null, "Solo valores númericos", "Advertencia", JOptionPane.WARNING_MESSAGE);
+           evt.consume();
+           texto.setText("");
+        }
+        
+    }
+    
+    
+    
     private void jTextFieldNumeroRegistroKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumeroRegistroKeyPressed
         if(ingresoLetrasEnteros(evt.getKeyCode())){
            JOptionPane.showMessageDialog(null, "Solo valores númericos", "Advertencia", JOptionPane.WARNING_MESSAGE);
@@ -977,7 +1023,7 @@ public class Registros extends javax.swing.JFrame {
     */
     private void jButtonRegistroUbicacionActionPerformed(java.awt.event.ActionEvent evt){
         //this.setEnabled(false);
-        Tabla_Lotes tab=new Tabla_Lotes(this, empresa);
+        Tabla_Lotes tab=new Tabla_Lotes(this, empresa, width, height);
     }
     
     /*
@@ -1033,7 +1079,7 @@ public class Registros extends javax.swing.JFrame {
          this.setVisible(false);
          ventanaPrincipalAdmin.setVisible(true);
         
-    }//GEN-LAST:event_jButtonVolverVentanaPrincipalActionPerformed
+    }
     
     /**
      * @param args the command line arguments
@@ -1047,14 +1093,14 @@ public class Registros extends javax.swing.JFrame {
     */
     private int counter;
     /*
-    *Formato para fecha
-    */
-    /*
     *Empresa
     */
     private Empresa empresa;
     
-    
+    public static int xValueLote=-1;
+    public static int yValueLote=-1;    
+    private static int height;
+    private static int width;
     
     private boolean noEspaciosEnBlanco(String cadena){
         if (!cadena.equals("Crear nombre de usuario") && !cadena.equals("No inferior a $400.000")
@@ -1228,6 +1274,39 @@ public class Registros extends javax.swing.JFrame {
         return periodo.getMonths();
     }
     
+    private void registrarTamañoFinca(String ancho, String alto, String pathLot){
+        try{
+            FileWriter lotes= new FileWriter(pathLot, true);
+            PrintWriter registrar=new PrintWriter(lotes);
+            registrar.println(ancho+","+alto);
+            registrar.close();
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Ups! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    private int[] valoresTamañoFinca(String pathLot){
+        String [] valores=new String[2];
+        int []valoresTamaño=new int[2];
+        String linea;
+        try{
+            BufferedReader br =new BufferedReader(new FileReader(pathLot));
+            while((linea=br.readLine())!=null){//primera linea del archivo csv
+                if(linea.split(",").length==2){
+                    valores = linea.split(",");//arreglo de las columnascada linea del archivo csv de cada linea
+                }else{
+                    break;
+                }
+            }
+            }catch(Exception ex){
+                JOptionPane.showMessageDialog(null, "Ups! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                System.out.println(ex.toString());     
+        }
+        for(int i=0;i<valores.length;i++){
+            valoresTamaño[i]=Integer.parseInt(valores[i]);
+        }
+        return valoresTamaño;
+    }
+    
     private void limpiarPaneles(){
         jTextFieldNombreUsuarioRegistro.setText("");
         jPasswordFieldContraseñaRegistro.setText("");
@@ -1327,8 +1406,7 @@ public class Registros extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldNumeroRegistro;
     private javax.swing.JTextField jTextFieldPesoAnimal;
     private javax.swing.JTextField jTextFieldCrias;
-    public static int xValueLote=-1;
-    public static int yValueLote=-1;
+   
 
     // End of variables declaration//GEN-END:variables
 }
