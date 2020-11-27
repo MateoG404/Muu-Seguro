@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Mundo;
 
 /**
@@ -81,9 +77,9 @@ public class Administrador {
         nombreUsuario=nombre;
         correoElectronico=correo;
         this.contraseña=contraseña;
-        pathUsers="C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\dataBase\\"+correo+"Usuarios.csv";
-        pathAnimals="C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\dataBase\\"+correo+"Animales.csv";
-        pathLot="C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\dataBase\\"+correo+"Lotes.csv";
+        pathUsers="..\\Muu-Seguro\\src\\dataBase\\"+correo+"Usuarios.csv";
+        pathAnimals="..\\Muu-Seguro\\src\\dataBase\\"+correo+"Animales.csv";
+        pathLot="..\\Muu-Seguro\\src\\dataBase\\"+correo+"Lotes.csv";
         basesUsuarios();
         basesAnimales();
         basesLotes();
@@ -191,7 +187,7 @@ public class Administrador {
 
     public void modificarUsuario(String tipo, int nuevoSalario, String nombreU, String nuevaContraseña, String nuevaFecha){
         try{
-            Path path=FileSystems.getDefault().getPath("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\dataBase\\"+correoElectronico+"Usuarios.csv");
+            Path path=FileSystems.getDefault().getPath("..\\Muu-Seguro\\src\\dataBase\\"+correoElectronico+"Usuarios.csv");
             ArrayList<String> contenidoArchivo = new ArrayList<>(Files.readAllLines(path));
             for(int i=0; i<contenidoArchivo.size();i++){
                 String[] valores = contenidoArchivo.get(i).split(",");
@@ -218,7 +214,7 @@ public class Administrador {
             nombre="NULL";
         }
         try{
-            Path path=FileSystems.getDefault().getPath("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\dataBase\\"+ correoElectronico+"Animales.csv");
+            Path path=FileSystems.getDefault().getPath("..\\Muu-Seguro\\src\\dataBase\\"+ correoElectronico+"Animales.csv");
             ArrayList<String> contenidoArchivo = new ArrayList<>(Files.readAllLines(path));
             for(int i=0; i<contenidoArchivo.size();i++){
                 String[] valores = contenidoArchivo.get(i).split(",");
@@ -243,7 +239,7 @@ public class Administrador {
 
     public void modificarLote(int numero, String nuevaRazaLote, String nuevaCalidadPasto, String nuevaAgua, int x, int y){
         try{
-            Path path=FileSystems.getDefault().getPath("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\dataBase\\"+ correoElectronico+"Lotes.csv");
+            Path path=FileSystems.getDefault().getPath("..\\Muu-Seguro\\src\\dataBase\\"+ correoElectronico+"Lotes.csv");
             ArrayList<String> contenidoArchivo = new ArrayList<>(Files.readAllLines(path));
             for(int i=0; i<contenidoArchivo.size();i++){
                 String[] valores = contenidoArchivo.get(i).split(",");
@@ -266,7 +262,7 @@ public class Administrador {
     */
     public void eliminarUsuario(String tipo, String nombreU){
         try{
-            Path path=FileSystems.getDefault().getPath("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\dataBase\\"+ correoElectronico+"Usuarios.csv");
+            Path path=FileSystems.getDefault().getPath("..\\Muu-Seguro\\src\\dataBase\\"+ correoElectronico+"Usuarios.csv");
             ArrayList<String> contenidoArchivo = new ArrayList<>(Files.readAllLines(path));
             for(int i=0; i<contenidoArchivo.size();i++){
                 String[] valores = contenidoArchivo.get(i).split(",");
@@ -290,7 +286,7 @@ public class Administrador {
     */
     public void eliminarAnimal(String sexo, String numeroReg){
         try{
-            Path path=FileSystems.getDefault().getPath("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\dataBase\\"+ correoElectronico+"Animales.csv");
+            Path path=FileSystems.getDefault().getPath("..\\Muu-Seguro\\src\\dataBase\\"+ correoElectronico+"Animales.csv");
             ArrayList<String> contenidoArchivo = new ArrayList<>(Files.readAllLines(path));
             for(int i=0; i<contenidoArchivo.size();i++){
                 String[] valores = contenidoArchivo.get(i).split(",");
@@ -314,7 +310,7 @@ public class Administrador {
     */
     public void eliminarLote(int numero){
         try{
-            Path path=FileSystems.getDefault().getPath("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\dataBase\\"+ correoElectronico+"Lotes.csv");
+            Path path=FileSystems.getDefault().getPath("..\\Muu-Seguro\\src\\dataBase\\"+ correoElectronico+"Lotes.csv");
             ArrayList<String> contenidoArchivo = new ArrayList<>(Files.readAllLines(path));
             for(int i=0; i<contenidoArchivo.size();i++){
                 String[] valores = contenidoArchivo.get(i).split(",");

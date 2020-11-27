@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Interfaz;
 
 /**
@@ -179,15 +175,15 @@ public class Registros extends javax.swing.JFrame {
         jLabelRazaLote.setText("Raza ");
         jPanelRegistroLote.add(jLabelRazaLote, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 224, 100, -1));
 
-        jLabelImageRegistrarLote.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\registroLote.png")); // NOI18N
+        jLabelImageRegistrarLote.setIcon(new javax.swing.ImageIcon("..\\Muu-Seguro\\src\\Interfaz\\DataImage\\registroLote.png")); // NOI18N
         jPanelRegistroLote.add(jLabelImageRegistrarLote, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 150, 150));
 
         
 
-        jLabelLinea3.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\linea.png")); // NOI18N
+        jLabelLinea3.setIcon(new javax.swing.ImageIcon("..\\Muu-Seguro\\src\\Interfaz\\DataImage\\linea.png")); // NOI18N
         jPanelRegistroLote.add(jLabelLinea3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 115, 20));
 
-        jLabelLinea4.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\linea.png")); // NOI18N
+        jLabelLinea4.setIcon(new javax.swing.ImageIcon("..\\Muu-Seguro\\src\\Interfaz\\DataImage\\linea.png")); // NOI18N
         jPanelRegistroLote.add(jLabelLinea4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 115, 20));
 
         jLabelRegistrarLote.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
@@ -266,10 +262,10 @@ public class Registros extends javax.swing.JFrame {
         jLabelRegistrarAnimal.setToolTipText("");
         jPanelRegistroAnimal.add(jLabelRegistrarAnimal, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 170, 40));
 
-        jLabelLinea1.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\linea.png")); // NOI18N
+        jLabelLinea1.setIcon(new javax.swing.ImageIcon("..\\Muu-Seguro\\src\\Interfaz\\DataImage\\linea.png")); // NOI18N
         jPanelRegistroAnimal.add(jLabelLinea1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 115, 20));
 
-        jLabelLinea2.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\linea.png")); // NOI18N
+        jLabelLinea2.setIcon(new javax.swing.ImageIcon("..\\Muu-Seguro\\src\\Interfaz\\DataImage\\linea.png")); // NOI18N
         jPanelRegistroAnimal.add(jLabelLinea2, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 170, 115, 20));
 
         jLabelFechaNacimiento.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -277,7 +273,7 @@ public class Registros extends javax.swing.JFrame {
         jLabelFechaNacimiento.setText("¿Conoce fecha de nacimiento?");
         jPanelRegistroAnimal.add(jLabelFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 332, 190, -1));
 
-        jLabelImageRegistrarAnimal.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\registroAnimal.png")); // NOI18N
+        jLabelImageRegistrarAnimal.setIcon(new javax.swing.ImageIcon("..\\Muu-Seguro\\src\\Interfaz\\DataImage\\registroAnimal.png")); // NOI18N
         jPanelRegistroAnimal.add(jLabelImageRegistrarAnimal, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 150, 150));
 
         jLabelRaza.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -499,7 +495,7 @@ public class Registros extends javax.swing.JFrame {
         jPanelRegistroUsuario.setBackground(new java.awt.Color(104, 191, 52));
         jPanelRegistroUsuario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelImageRegistrarUsuario.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\registroUsuario.png")); // NOI18N
+        jLabelImageRegistrarUsuario.setIcon(new javax.swing.ImageIcon("..\\Muu-Seguro\\src\\Interfaz\\DataImage\\registroUsuario.png")); // NOI18N
         jPanelRegistroUsuario.add(jLabelImageRegistrarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 150, 150));
 
         jLabelRegistrarUsuario.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
@@ -509,10 +505,10 @@ public class Registros extends javax.swing.JFrame {
         jLabelRegistrarUsuario.setToolTipText("");
         jPanelRegistroUsuario.add(jLabelRegistrarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 170, 40));
 
-        jLabelLinea5.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\linea.png")); // NOI18N
+        jLabelLinea5.setIcon(new javax.swing.ImageIcon("..\\Muu-Seguro\\src\\Interfaz\\DataImage\\linea.png")); // NOI18N
         jPanelRegistroUsuario.add(jLabelLinea5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 115, 20));
 
-        jLabelLinea6.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\linea.png")); // NOI18N
+        jLabelLinea6.setIcon(new javax.swing.ImageIcon("..\\Muu-Seguro\\src\\Interfaz\\DataImage\\linea.png")); // NOI18N
         jPanelRegistroUsuario.add(jLabelLinea6, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 170, 115, 20));
 
         jLabelSalario.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -530,7 +526,7 @@ public class Registros extends javax.swing.JFrame {
         jLabeContraseña.setText("Crear contraseña");
         jPanelRegistroUsuario.add(jLabeContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 374, 130, -1));
 
-        jLabelImageUsuario.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\UsersRegistro.png")); // NOI18N
+        jLabelImageUsuario.setIcon(new javax.swing.ImageIcon("..\\Muu-Seguro\\src\\Interfaz\\DataImage\\UsersRegistro.png")); // NOI18N
         jPanelRegistroUsuario.add(jLabelImageUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 293, 30, -1));
 
         jLabelNombreUsuario.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -543,7 +539,7 @@ public class Registros extends javax.swing.JFrame {
         jLabelTipoUsuario.setText("Tipo de usuario");
         jPanelRegistroUsuario.add(jLabelTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 212, 130, -1));
 
-        jButtonVerContraseñaRegistroUsuario.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\verContraseñaUsuario.png")); // NOI18N
+        jButtonVerContraseñaRegistroUsuario.setIcon(new javax.swing.ImageIcon("..\\Muu-Seguro\\src\\Interfaz\\DataImage\\verContraseñaUsuario.png")); // NOI18N
         jButtonVerContraseñaRegistroUsuario.setContentAreaFilled(false);
         jButtonVerContraseñaRegistroUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonVerContraseñaRegistroUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -716,7 +712,7 @@ public class Registros extends javax.swing.JFrame {
         });
         jPanelRegistroBotones.add(jButtonVolverVentanaPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 430, 190, 32));
 
-        jLabelImageRegistrarUsuario2.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\fondoRegistro.png")); // NOI18N
+        jLabelImageRegistrarUsuario2.setIcon(new javax.swing.ImageIcon("..\\Muu-Seguro\\src\\Interfaz\\DataImage\\fondoRegistro.png")); // NOI18N
         jLabelImageRegistrarUsuario2.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jPanelRegistroBotones.add(jLabelImageRegistrarUsuario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 470, 530));
 
@@ -775,7 +771,7 @@ public class Registros extends javax.swing.JFrame {
     */
     private void jButtonIrAPanelLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIrAPanelLoteActionPerformed
         String linea;
-        String pathLot="C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\dataBase\\"+empresa.darAdmin().darCorreo()+"Lotes.csv";
+        String pathLot="..\\Muu-Seguro\\src\\dataBase\\"+empresa.darAdmin().darCorreo()+"Lotes.csv";
         try{
             BufferedReader br =new BufferedReader(new FileReader(pathLot));
             if((linea=br.readLine())==null){//primera linea del archivo csv

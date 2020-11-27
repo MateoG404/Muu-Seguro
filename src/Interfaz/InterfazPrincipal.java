@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Interfaz;
 
-/**
- *
- * @author John Silva
- */
 import Mundo.Empresa;
 import com.placeholder.PlaceHolder;
 import java.awt.*;
@@ -25,9 +16,6 @@ import java.io.IOException;
  */
 public class InterfazPrincipal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form InterfazPrincipal
-     */
     public InterfazPrincipal() {
         initComponents();
         initOtComponent(); 
@@ -369,7 +357,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
    
     
-    /*s
+    /*
     *Ver contraseña en inicio de sesión
     */
     private void jButtonVerContraseñaInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerContraseñaInicioActionPerformed
@@ -391,12 +379,15 @@ public class InterfazPrincipal extends javax.swing.JFrame {
             siguienteVentana();//Ignore esto
             //Dependiendo del tipo de usuario se dirige:
             //Administrador---->Ventana principal administrador
+            
             if(rol.equals("Administrador")){
                 siguienteVentana(); 
                 Ventana ventanaPrincipalAdmin=new Ventana(emp);
                 this.setVisible(false);
                 ventanaPrincipalAdmin.setVisible(true);
-            }else if(rol.equals("Veterinario")){               
+                
+            }else if(rol.equals("Veterinario")){   
+                System.err.println("Entrooo");
                 //Veterinario---->Ventana principal veterinario
                 siguienteVentana();
                 VeterinarioInterfaz ven= new VeterinarioInterfaz(emp, nombreUsuario);
@@ -553,7 +544,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
     *Direccion del archivo .csv donde se almacenan los datos de las
     *empresas registradas
     */
-    static private final String PATH="C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\dataBase\\empresas.csv";
+    static private final String PATH="..\\Muu-Seguro\\src\\dataBase\\empresas.csv";
     /*
     *Direccion del archivo .csv donde se almacenan los datos de los
     *administradores perteneciantes a una cierta empresa 
@@ -571,7 +562,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
         try{
             FileWriter empresas=new FileWriter(PATH, true);
         }catch(IOException ex){
-            JOptionPane.showMessageDialog(null, "Ups! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Upscsasasss! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
         }
         jPanelRegistro.setVisible(false);
     }
@@ -656,7 +647,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                         }   
                     }
                 }catch(IOException ex){
-                    JOptionPane.showMessageDialog(null, "Ups662! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "UPPSS! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
                     return false;
                 }
             }else{
@@ -675,14 +666,14 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                         }   
                     }     
                 }catch(Exception ex){
-                    JOptionPane.showMessageDialog(null, "Ups681! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "UPSS! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
                     return false;
                 }
                 /*
                 *Establecer la ruta de busqueda para verificaciones
                 */
                 System.err.println(this.getClass().getResourceAsStream("/dataBase/"+correo+"Usuarios.csv").toString());
-                pathUsers="C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\dataBase\\"+correo+"Usuarios.csv";
+                pathUsers="..\\Muu-Seguro\\src\\dataBase\\"+correo+"Usuarios.csv";
                 /*
                 *Buscar el usuario EMPLEADO o VETERINARIO
                 */

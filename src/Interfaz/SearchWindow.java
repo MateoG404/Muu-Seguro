@@ -168,7 +168,7 @@ public class SearchWindow extends javax.swing.JFrame {
         
         getContentPane().add(jPanelTablas, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 170, 650, 400));
         
-        fondo.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\fondoMuu.png")); // NOI18N
+        fondo.setIcon(new javax.swing.ImageIcon("..\\Muu-Seguro\\src\\Interfaz\\DataImage\\fondoMuu.png")); // NOI18N
         jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 620));
         this.setResizable(false);
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 600));

@@ -117,7 +117,7 @@ class CellPane extends javax.swing.JPanel{
         String linea;
         registrados.clear();
         try{
-            BufferedReader br =new BufferedReader(new FileReader("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\dataBase\\"+empresa.darAdmin().darCorreo()+"Lotes.csv"));
+            BufferedReader br =new BufferedReader(new FileReader("..\\Muu-Seguro\\src\\dataBase\\"+empresa.darAdmin().darCorreo()+"Lotes.csv"));
             while((linea=br.readLine())!= null){//cada linea del archivo csv
                 if(linea.split(",").length!=2){    
                     String[] valores = linea.split(",");//arreglo de las columnas de cada linea

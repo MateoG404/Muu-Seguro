@@ -112,7 +112,7 @@ public class WorkerWindow extends javax.swing.JFrame {
 
         
 
-        BProfile1.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\perfil.png")); // NOI18N
+        BProfile1.setIcon(new javax.swing.ImageIcon("..\\Muu-Seguro\\src\\Interfaz\\DataImage\\perfil.png")); // NOI18N
         BProfile1.setText("PERFIL");
         BProfile1.setFont(new java.awt.Font("SansSerif", 0, 12));
         BProfile1.setForeground(new java.awt.Color(255,255,255));
@@ -136,7 +136,7 @@ public class WorkerWindow extends javax.swing.JFrame {
         });
         jPanel1.add(BProfile1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 190, 32));
 
-        BSearch1.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\buscar.png")); // NOI18N
+        BSearch1.setIcon(new javax.swing.ImageIcon("..\\Muu-Seguro\\src\\Interfaz\\DataImage\\buscar.png")); // NOI18N
         BSearch1.setText("BUSCAR");
         BSearch1.setFont(new java.awt.Font("SansSerif", 0, 12));
         BSearch1.setForeground(new java.awt.Color(255,255,255));
@@ -160,7 +160,7 @@ public class WorkerWindow extends javax.swing.JFrame {
         });
         jPanel1.add(BSearch1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 190, 32));
         
-        BSet1.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\viewWhite.png"));
+        BSet1.setIcon(new javax.swing.ImageIcon("..\\Muu-Seguro\\src\\Interfaz\\DataImage\\viewWhite.png"));
         BSet1.setText("LOTES");
         BSet1.setFont(new java.awt.Font("SansSerif", 0, 12));
         BSet1.setForeground(new java.awt.Color(255,255,255));
@@ -184,7 +184,7 @@ public class WorkerWindow extends javax.swing.JFrame {
         });
         jPanel1.add(BSet1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 190, 32));
 
-        BOut1.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\salir.png")); // NOI18N
+        BOut1.setIcon(new javax.swing.ImageIcon("..\\Muu-Seguro\\src\\Interfaz\\DataImage\\salir.png")); // NOI18N
         BOut1.setBorder(null);
         BOut1.setBorderPainted(false);
         BOut1.setBackground(new java.awt.Color(128,95,29));
@@ -314,7 +314,7 @@ public class WorkerWindow extends javax.swing.JFrame {
         try {
             textSetC.setText(null);
             String image = getImage(CBSetC.getSelectedItem().toString());
-            String ubication = "C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\" ; 
+            String ubication = "..\\Muu-Seguro\\src\\Interfaz\\DataImage\\" ; 
             ubication= ubication+image+".png" ;
             System.out.println(ubication);
             CowC.setIcon(new javax.swing.ImageIcon(ubication));
@@ -330,7 +330,7 @@ public class WorkerWindow extends javax.swing.JFrame {
         try {
             textSetB.setText(null);
             String image = getImage(CBSetB.getSelectedItem().toString());
-            String ubication = "C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\" ; 
+            String ubication = "..\\Muu-Seguro\\src\\Interfaz\\DataImage\\" ; 
             ubication= ubication+image+".png" ;
             System.out.println(ubication);
             CowB.setIcon(new javax.swing.ImageIcon(ubication));
@@ -346,7 +346,7 @@ public class WorkerWindow extends javax.swing.JFrame {
         try {
             textSetA.setText(null);
             String image = getImage(CBSetA.getSelectedItem().toString());
-            String ubication = "C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\" ; 
+            String ubication = "..\\Muu-Seguro\\src\\Interfaz\\DataImage\\" ; 
             ubication= ubication+image+".png" ;
             System.out.println(ubication);
             CowA.setIcon(new javax.swing.ImageIcon(ubication));

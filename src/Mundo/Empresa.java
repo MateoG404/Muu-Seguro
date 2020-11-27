@@ -1,14 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Mundo;
 
-/**
- *
- * @author John Silva
- */
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.Random;
@@ -34,7 +26,7 @@ public class Empresa {
     /*
     *
     */
-    public static final String PATH="C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\dataBase\\empresas.csv";
+    public static final String PATH="..\\Muu-Seguro\\src\\dataBase\\empresas.csv";
     //ATRIBUTOS
     /*
     *Arreglo codigo de la empresa
@@ -152,7 +144,7 @@ public class Empresa {
         }catch(IOException ex){
             JOptionPane.showMessageDialog(null, "Ups! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        String pathUsers="C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\dataBase\\"+correo+"Usuarios.csv";
+        String pathUsers="..\\Muu-Seguro\\src\\dataBase\\"+correo+"Usuarios.csv";
         /*
         *Buscar el usuario VETERINARIO
         */
@@ -189,7 +181,7 @@ public class Empresa {
         }catch(IOException ex){
             JOptionPane.showMessageDialog(null, "Ups! Algo salió mal, inténtelo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        String pathUsers="C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\dataBase\\"+correo+"Usuarios.csv";
+        String pathUsers="..\\Muu-Seguro\\src\\dataBase\\"+correo+"Usuarios.csv";
         /*
         *Buscar el usuario VETERINARIO
         */

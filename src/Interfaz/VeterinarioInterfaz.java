@@ -1,12 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Interfaz;
 
 import Mundo.Empresa;
 import Mundo.Veterinario;
+import javax.swing.JButton;
 
 
 /**
@@ -18,10 +14,11 @@ public class VeterinarioInterfaz extends javax.swing.JFrame {
     Empresa empresa ;
     Veterinario veterinario;
     FunctionsClass ven = new FunctionsClass(3) ; 
-    
+    String nombreUsuario; 
     
     public VeterinarioInterfaz(Empresa empresa, String nombreUsuario){
         initComponents();
+        this.nombreUsuario = nombreUsuario;
         this.empresa = empresa ;
         veterinario = empresa.darVeterinarioActual(nombreUsuario, empresa.darCodigo());
         System.out.println("Entroooo");
@@ -36,9 +33,9 @@ public class VeterinarioInterfaz extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         ButtonSalir = new javax.swing.JButton();
         ButtonPerfil = new javax.swing.JButton();
-        ButtonEliminar = new javax.swing.JButton();
+        
         ButtonEnfermedad = new javax.swing.JButton();
-        ButtonAgregar = new javax.swing.JButton();
+        ButtonMedica = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         TextArea3 = new javax.swing.JTextArea();
@@ -67,7 +64,7 @@ public class VeterinarioInterfaz extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaz/DataImage/logoMuuTexto.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 182));
 
-        ButtonSalir.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\salir.png")); // NOI18N
+        ButtonSalir.setIcon(new javax.swing.ImageIcon("..\\Muu-Seguro\\src\\Interfaz\\DataImage\\salir.png")); // NOI18N
         ButtonSalir.setFont(new java.awt.Font("SansSerif", 0, 12));
         ButtonSalir.setForeground(new java.awt.Color(255,255,255));
         ButtonSalir.setBorder(null);
@@ -89,7 +86,7 @@ public class VeterinarioInterfaz extends javax.swing.JFrame {
             }
         });
         jPanel1.add(ButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 580, 30, 30));
-        ButtonPerfil.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\perfil.png")); // NOI18N
+        ButtonPerfil.setIcon(new javax.swing.ImageIcon("..\\Muu-Seguro\\src\\Interfaz\\DataImage\\perfil.png")); // NOI18N
         ButtonPerfil.setText("PERFIL");
         ButtonPerfil.setFont(new java.awt.Font("SansSerif", 0, 12));
         ButtonPerfil.setForeground(new java.awt.Color(255,255,255));
@@ -113,31 +110,10 @@ public class VeterinarioInterfaz extends javax.swing.JFrame {
         });
         jPanel1.add(ButtonPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 190, 32));
 
-        ButtonEliminar.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\eliminar.png")); // NOI18N
-        ButtonEliminar.setText("ELIMINAR");
-        ButtonEliminar.setFont(new java.awt.Font("SansSerif", 0, 12));
-        ButtonEliminar.setForeground(new java.awt.Color(255,255,255));
-        ButtonEliminar.setBorder(null);
-        ButtonEliminar.setBorderPainted(false);
-        ButtonEliminar.setBackground(new java.awt.Color(77,144,254));
-        ButtonEliminar.setContentAreaFilled(false);
-        ButtonEliminar.setOpaque(true);
-        ButtonEliminar.addMouseListener(new java.awt.event.MouseAdapter(){
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                buttonMouseEntered(evt,ButtonEliminar);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt){
-                buttonMouseExited(evt, ButtonEliminar);
-            }
-        });
-        ButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonEliminarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(ButtonEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 190, 32));
+        
+           
 
-        ButtonEnfermedad.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\viewWhite.png")); // NOI18N
+        ButtonEnfermedad.setIcon(new javax.swing.ImageIcon("..\\Muu-Seguro\\src\\Interfaz\\DataImage\\viewWhite.png")); // NOI18N
         ButtonEnfermedad.setText("ENFERMEDADES");
         ButtonEnfermedad.setFont(new java.awt.Font("SansSerif", 0, 12));
         ButtonEnfermedad.setForeground(new java.awt.Color(255,255,255));
@@ -161,29 +137,30 @@ public class VeterinarioInterfaz extends javax.swing.JFrame {
         });
         jPanel1.add(ButtonEnfermedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 190, 32));
 
-        ButtonAgregar.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\agregar.png")); // NOI18N
-        ButtonAgregar.setText("AGREGAR");
-        ButtonAgregar.setFont(new java.awt.Font("SansSerif", 0, 12));
-        ButtonAgregar.setForeground(new java.awt.Color(255,255,255));
-        ButtonAgregar.setBorder(null);
-        ButtonAgregar.setBorderPainted(false);
-        ButtonAgregar.setBackground(new java.awt.Color(77,144,254));
-        ButtonAgregar.setContentAreaFilled(false);
-        ButtonAgregar.setOpaque(true);
-        ButtonAgregar.addMouseListener(new java.awt.event.MouseAdapter(){
+        ButtonMedica.setIcon(new javax.swing.ImageIcon("..\\Muu-Seguro\\src\\Interfaz\\DataImage\\agregar.png")); // NOI18N
+        ButtonMedica.setText("MEDICAMENTOS");
+        ButtonMedica.setFont(new java.awt.Font("SansSerif", 0, 12));
+        ButtonMedica.setForeground(new java.awt.Color(255,255,255));
+        ButtonMedica.setBorder(null);
+        ButtonMedica.setBorderPainted(false);
+        ButtonMedica.setBackground(new java.awt.Color(77,144,254));
+        ButtonMedica.setContentAreaFilled(false);
+        ButtonMedica.setOpaque(true);
+        ButtonMedica.addMouseListener(new java.awt.event.MouseAdapter(){
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                buttonMouseEntered(evt,ButtonAgregar);
+                buttonMouseEntered(evt,ButtonMedica);
             }
             public void mouseExited(java.awt.event.MouseEvent evt){
-                buttonMouseExited(evt, ButtonAgregar);
+                buttonMouseExited(evt, ButtonMedica);
             }
         });
-        ButtonAgregar.addActionListener(new java.awt.event.ActionListener() {
+        ButtonMedica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAgregarActionPerformed(evt);
+                //ButtonMedicButtonMedicaaActionPerformed(evt);
+                ButtonMedicaActionPerformed(evt);
             }
         });
-        jPanel1.add(ButtonAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 190, 32));
+        jPanel1.add(ButtonMedica, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 190, 32));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 640));
 
@@ -268,13 +245,22 @@ public class VeterinarioInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonEliminarActionPerformed
 
     private void ButtonEnfermedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEnfermedadActionPerformed
-        System.out.println("Ver enfermedades");
-    }//GEN-LAST:event_ButtonEnfermedadActionPerformed
+        System.out.println("Entro a --> Ver enfermedades");
+        // Se abre la ventana de Agregar / Eliminar Enfermedades
+        AgregarEnfermedad enfermedadVentana = new AgregarEnfermedad (empresa,nombreUsuario);
+        enfermedadVentana.setVisible(true);
+        this.setVisible(false);
+    }
+    
 
-    private void ButtonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAgregarActionPerformed
-        System.out.println("Agregar enfermedades");
-        
-    }//GEN-LAST:event_ButtonAgregarActionPerformed
+    private void ButtonMedicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAgregarActionPerformed
+        System.out.println("Entro a ---> Agregar enfermedades");
+        // Se abre la ventana de Agregar / Eliminar Medicamentos
+        AgregarMedicamentos medicamentosVentana = new AgregarMedicamentos(empresa, nombreUsuario) ;
+        medicamentosVentana.setVisible(true);
+        this.setVisible(false);
+    }
+
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
@@ -296,9 +282,8 @@ public class VeterinarioInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonSalirActionPerformed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ButtonAgregar;
-    private javax.swing.JButton ButtonEliminar;
     private javax.swing.JButton ButtonEnfermedad;
+    private javax.swing.JButton ButtonMedica;
     private javax.swing.JButton ButtonPerfil;
     private javax.swing.JButton ButtonSalir;
     private javax.swing.JComboBox<String> ComBox2;

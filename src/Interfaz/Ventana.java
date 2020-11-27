@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Interfaz;
 
 /**
@@ -131,10 +126,10 @@ public class Ventana extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(104,191,52));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        LabelImage.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\logoMuuTexto.png")); // NOI18N
+        LabelImage.setIcon(new javax.swing.ImageIcon("..\\Muu-Seguro\\src\\Interfaz\\DataImage\\logoMuuTexto.png")); // NOI18N
         jPanel1.add(LabelImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 182));
 
-        BProfile.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\perfil.png")); // NOI18N
+        BProfile.setIcon(new javax.swing.ImageIcon("..\\Muu-Seguro\\src\\Interfaz\\DataImage\\perfil.png")); // NOI18N
         BProfile.setText("PERFIL");
         BProfile.setFont(new java.awt.Font("SansSerif", 0, 12));
         BProfile.setForeground(new java.awt.Color(255,255,255));
@@ -158,7 +153,7 @@ public class Ventana extends javax.swing.JFrame {
         });
         jPanel1.add(BProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 190, 32));
 
-        BSearch.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\buscar.png")); // NOI18N
+        BSearch.setIcon(new javax.swing.ImageIcon("..\\Muu-Seguro\\src\\Interfaz\\DataImage\\buscar.png")); // NOI18N
         BSearch.setText("BUSCAR");
         BSearch.setFont(new java.awt.Font("SansSerif", 0, 12));
         BSearch.setForeground(new java.awt.Color(255,255,255));
@@ -182,7 +177,7 @@ public class Ventana extends javax.swing.JFrame {
         });
         jPanel1.add(BSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 190, 32));
 
-        BOut.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\salir.png")); // NOI18N
+        BOut.setIcon(new javax.swing.ImageIcon("..\\Muu-Seguro\\src\\Interfaz\\DataImage\\salir.png")); // NOI18N
         BOut.setBorder(null);
         BOut.setBorderPainted(false);
         BOut.setBackground(new java.awt.Color(104,191,52));
@@ -203,7 +198,7 @@ public class Ventana extends javax.swing.JFrame {
         });
         jPanel1.add(BOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 580, 30, 30));
 
-        AddButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\agregar.png")); // NOI18N
+        AddButton.setIcon(new javax.swing.ImageIcon("..\\Muu-Seguro\\src\\Interfaz\\DataImage\\agregar.png")); // NOI18N
         AddButton.setText("AGREGAR");
         AddButton.setFont(new java.awt.Font("SansSerif", 0, 12));
         AddButton.setForeground(new java.awt.Color(255,255,255));
@@ -301,7 +296,7 @@ public class Ventana extends javax.swing.JFrame {
         });
         jPanel2.add(ButtonGraphic, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 570, 75, 30));
 
-        CowA.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\holstein.png")); // NOI18N
+        CowA.setIcon(new javax.swing.ImageIcon("..\\Muu-Seguro\\src\\Interfaz\\DataImage\\holstein.png")); // NOI18N
         jPanel2.add(CowA, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, -1, -1));
 
         CBSetA.addActionListener(new java.awt.event.ActionListener() {
@@ -311,7 +306,7 @@ public class Ventana extends javax.swing.JFrame {
         });
         jPanel2.add(CBSetA, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 150, 30));
 
-        CowB.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\jersey.png")); // NOI18N
+        CowB.setIcon(new javax.swing.ImageIcon("..\\Muu-Seguro\\src\\Interfaz\\DataImage\\jersey.png")); // NOI18N
         jPanel2.add(CowB, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, -1, -1));
 
         CBSetB.addActionListener(new java.awt.event.ActionListener() {
@@ -337,7 +332,7 @@ public class Ventana extends javax.swing.JFrame {
         jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 240, 150));
 
         Fondo.setBackground(new java.awt.Color(0, 51, 51));
-        Fondo.setIcon(new javax.swing.ImageIcon("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\FondoDos.png")); // NOI18N
+        Fondo.setIcon(new javax.swing.ImageIcon("..\\Muu-Seguro\\src\\Interfaz\\DataImage\\FondoDos.png")); // NOI18N
         jPanel2.add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 640));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 0, 820, 615));
@@ -371,7 +366,7 @@ public class Ventana extends javax.swing.JFrame {
         try {
             textSetB.setText(null);
             String image = getImage(CBSetA.getSelectedItem().toString());
-            String ubication = "C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\" ; 
+            String ubication = "..\\Muu-Seguro\\src\\Interfaz\\DataImage\\" ; 
             ubication= ubication+image+".png" ;
             System.out.println(ubication);
             CowA.setIcon(new javax.swing.ImageIcon(ubication));
@@ -410,7 +405,7 @@ public class Ventana extends javax.swing.JFrame {
         try {
             textSetB.setText(null);
             String image = getImage(CBSetB.getSelectedItem().toString());
-            String ubication = "C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\Interfaz\\DataImage\\" ;
+            String ubication = "..\\Muu-Seguro\\src\\Interfaz\\DataImage\\" ;
             ubication += image + ".png" ;
             CowB.setIcon(new javax.swing.ImageIcon(ubication));
             String temp2 = CBSetB.getSelectedItem().toString(); 

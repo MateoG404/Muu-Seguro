@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Mundo;
 
 import java.io.IOException;
@@ -47,7 +43,7 @@ public class Veterinario extends Usuario{
     
     public void registrarEnfermedad(String numeroSerieAnimal,String tipoSexo,String nombreEnfermedad, String correoElectronico, String nombreMedicamento){
         try{
-            Path path=FileSystems.getDefault().getPath("C:\\Users\\John Silva\\Desktop\\Java\\MuuuuSeguro\\src\\dataBase\\"+ correoElectronico+"Animales.csv");
+            Path path=FileSystems.getDefault().getPath("..\\Muu-Seguro\\src\\dataBase\\"+ correoElectronico+"Animales.csv");
             ArrayList<String> contenidoArchivo = new ArrayList<>(Files.readAllLines(path));
             for(int i=0; i<contenidoArchivo.size();i++){
                 String[] valores = contenidoArchivo.get(i).split(",");
